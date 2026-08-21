@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+  background: #10051c;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 65% 25%,
+      rgba(176, 38, 217, 0.20),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 35% 70%,
+      rgba(139, 47, 201, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #10051c 0%,
+      #12051f 45%,
+      #0b0314 100%
+    );
+
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+
+  overflow-x: hidden;
+}
+
+/* IMPORTANT:
+   Tailwind utilities such as mx-auto and px-8
+   must NOT be overridden by a global reset.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   PURPLE THEME
+===================================================== */
+
+:root {
+  --purple: #8b2fc9;
+  --purple-light: #b026d9;
+  --purple-bright: #c43ee8;
+  --purple-soft: #c084fc;
+
+  --background: #10051c;
+  --card: rgba(31, 14, 45, 0.72);
+
+  --border: rgba(176, 38, 217, 0.38);
+
+  --text: #f8f5fa;
+  --muted: #a99aaf;
+}
+
+/* =====================================================
+   TECH GRID BACKGROUND
+===================================================== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(176, 38, 217, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(176, 38, 217, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      rgba(176, 38, 217, 0.08),
+      transparent 32%
+    ),
+    transparent;
+}
+
+/* =====================================================
+   TEXT COLORS
+===================================================== */
+
+.text-cyan-300,
+.text-cyan-400,
+.text-cyan-500,
+.text-blue-400,
+.text-blue-500 {
+  color: var(--purple-soft) !important;
+}
+
+.text-gray-300 {
+  color: #d5cbd9 !important;
+}
+
+.text-gray-400 {
+  color: var(--muted) !important;
+}
+
+.text-white {
+  color: var(--text) !important;
+}
+
+/* =====================================================
+   BACKGROUND COLORS
+===================================================== */
+
+.bg-slate-950 {
+  background: transparent !important;
+}
+
+.bg-slate-900 {
+  background: rgba(11, 3, 20, 0.82) !important;
+}
+
+.bg-slate-800 {
+  background: var(--card) !important;
+}
+
+/* =====================================================
+   CYAN -> PURPLE
+===================================================== */
+
+.bg-cyan-400,
+.bg-cyan-500,
+.bg-blue-400,
+.bg-blue-500 {
+  background-color: var(--purple) !important;
+}
+
+.text-cyan-300,
+.text-cyan-400,
+.text-cyan-500,
+.text-blue-400,
+.text-blue-500 {
+  color: var(--purple-soft) !important;
+}
+
+.border-cyan-400,
+.border-cyan-500,
+.border-blue-400,
+.border-blue-500 {
+  border-color: var(--purple) !important;
+}
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.hover\:text-cyan-400:hover,
+.hover\:text-blue-500:hover {
+  color: var(--purple-bright) !important;
+}
+
+.hover\:bg-cyan-400:hover,
+.hover\:bg-cyan-500:hover {
+  background-color: var(--purple-light) !important;
+}
+
+.hover\:border-cyan-400:hover {
+  border-color: var(--purple-bright) !important;
+}
+
+/* =====================================================
+   CARD BORDERS
+===================================================== */
+
+.border-slate-700,
+.border-slate-600 {
+  border-color: var(--border) !important;
+}
+
+/* =====================================================
+   GRADIENT TEXT
+===================================================== */
+
+.from-cyan-400 {
+  --tw-gradient-from: #b026d9 var(--tw-gradient-from-position) !important;
+}
+
+.via-blue-400 {
+  --tw-gradient-stops:
+    var(--tw-gradient-from),
+    #c084fc var(--tw-gradient-via-position),
+    var(--tw-gradient-to) !important;
+}
+
+.to-purple-500 {
+  --tw-gradient-to: #d05ce3 var(--tw-gradient-to-position) !important;
+}
+
+/* =====================================================
+   PURPLE GLOW
+===================================================== */
+
+[class*="shadow-[0_0_70px"] {
+  box-shadow:
+    0 0 45px rgba(176, 38, 217, 0.45),
+    0 0 100px rgba(139, 47, 201, 0.25) !important;
+}
+
+[class*="shadow-[0_0_25px"] {
+  box-shadow:
+    0 0 25px rgba(176, 38, 217, 0.35) !important;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.bg-slate-800:hover {
+  border-color: rgba(192, 132, 252, 0.55) !important;
+
+  box-shadow:
+    0 0 25px rgba(176, 38, 217, 0.18),
+    inset 0 0 20px rgba(176, 38, 217, 0.03);
+}
+
+/* =====================================================
+   LINKS / BUTTONS
+===================================================== */
+
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+.bg-cyan-500 {
+  box-shadow:
+    0 0 20px rgba(176, 38, 217, 0.3);
+}
+
+.bg-cyan-500:hover {
+  box-shadow:
+    0 0 30px rgba(208, 92, 227, 0.45);
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0314;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    #8b2fc9,
+    #d05ce3
+  );
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c084fc;
+}
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+  background: rgba(176, 38, 217, 0.4);
+  color: white;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(
+        circle at 50% 20%,
+        rgba(176, 38, 217, 0.18),
+        transparent 35%
+      ),
+      #10051c;
+  }
+}
