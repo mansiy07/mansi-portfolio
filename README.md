@@ -1,22 +1,59 @@
-# Mansi Yadav – Portfolio
+# Mansi Yadav — Portfolio
 
-🌐 **[View My Live Portfolio](https://mansi-yadav.vercel.app/)**
+A personal developer portfolio showcasing my skills, projects, experience, and technical journey.
+
+🌐 **Live Portfolio:** https://mansi-yadav.vercel.app/
 
 ---
 
-# React + Vite
+## About
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+I am a Computer Science & Engineering student at Galgotias University, focused on software development and backend technologies.
 
-Currently, two official plugins are available:
+I enjoy building practical applications, solving problems, and continuously improving my development skills through hands-on projects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Java
+- Spring Boot
+- SQL / MySQL
+- React.js
+- JavaScript
+- HTML
+- CSS
+- Git & GitHub
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Featured Projects
+
+### SehatAI
+An AI-powered healthcare project focused on providing users with accessible and useful health-related assistance.
+
+### DefenSight AI
+An AI-based security-focused project designed around intelligent monitoring and threat detection.
+
+---
+
+## Portfolio Sections
+
+- About Me
+- Skills
+- Projects
+- Experience
+- Contact
+
+---
+
+## Contact
+
+**Mansi Yadav**
+
+- GitHub: https://github.com/mansiy07
+- LinkedIn: https://www.linkedin.com/in/mansiy07
+
+---
+
+⭐ Feel free to explore the portfolio and my projects.
