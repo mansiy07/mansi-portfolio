@@ -2,6 +2,7 @@
 // File Name   : Footer.jsx
 // Purpose     : Portfolio Footer
 // Author      : Mansi Yadav
+// Description : Clean Black / Light Peach Footer
 // =====================================================
 
 import {
@@ -9,23 +10,29 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
+
 // =====================================================
 // Footer Component
 // =====================================================
 
 function Footer() {
   return (
+
     <footer
       className="
         w-full
-        bg-[#080014]
+        bg-[var(--bg)]
         border-t
-        border-purple-500/20
-        text-gray-400
+        border-[var(--border)]
+        text-[var(--text-secondary)]
+        transition-colors
+        duration-300
       "
     >
 
-      {/* ================= Main Container ================= */}
+      {/* =================================================
+          Main Container
+      ================================================= */}
 
       <div
         className="
@@ -44,31 +51,63 @@ function Footer() {
             md:flex-row
             items-center
             justify-between
-            gap-5
+            gap-6
           "
         >
 
-          {/* ================= Copyright ================= */}
+          {/* =================================================
+              Copyright / Description
+          ================================================= */}
 
-          <div className="text-center md:text-left">
+          <div
+            className="
+              text-center
+              md:text-left
+            "
+          >
 
-            <p className="text-gray-300 font-medium">
+            <p
+              className="
+                text-[var(--text)]
+                font-medium
+              "
+            >
               © 2026{" "}
-              <span className="text-purple-400">
+
+              <span
+                className="
+                  text-[var(--accent)]
+                "
+              >
                 Mansi Yadav
               </span>
             </p>
 
-            <p className="text-sm text-gray-500 mt-1">
+
+            <p
+              className="
+                text-sm
+                text-[var(--text-muted)]
+                mt-1
+              "
+            >
               CSE Student | Aspiring Software Developer
             </p>
 
           </div>
 
 
-          {/* ================= Social Links ================= */}
+          {/* =================================================
+              Social Links
+          ================================================= */}
 
-          <div className="flex items-center gap-4">
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+            "
+          >
 
             {/* ================= GitHub ================= */}
 
@@ -77,6 +116,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              title="GitHub"
               className="
                 w-10
                 h-10
@@ -85,11 +125,11 @@ function Footer() {
                 items-center
                 justify-center
                 border
-                border-purple-500/20
-                text-gray-400
-                hover:text-purple-300
-                hover:border-purple-400/60
-                hover:bg-purple-500/10
+                border-[var(--border)]
+                text-[var(--text-secondary)]
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent-border)]
+                hover:bg-[var(--accent-soft)]
                 hover:-translate-y-1
                 transition-all
                 duration-300
@@ -102,10 +142,11 @@ function Footer() {
             {/* ================= LinkedIn ================= */}
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/mansiy07"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
+              title="LinkedIn"
               className="
                 w-10
                 h-10
@@ -114,11 +155,11 @@ function Footer() {
                 items-center
                 justify-center
                 border
-                border-purple-500/20
-                text-gray-400
-                hover:text-purple-300
-                hover:border-purple-400/60
-                hover:bg-purple-500/10
+                border-[var(--border)]
+                text-[var(--text-secondary)]
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent-border)]
+                hover:bg-[var(--accent-soft)]
                 hover:-translate-y-1
                 transition-all
                 duration-300
@@ -132,19 +173,26 @@ function Footer() {
         </div>
 
 
-        {/* ================= Bottom Divider ================= */}
+        {/* =================================================
+            Bottom Divider
+        ================================================= */}
 
         <div
           className="
             mt-7
             pt-5
             border-t
-            border-purple-500/10
+            border-[var(--border)]
             text-center
           "
         >
 
-          <p className="text-xs text-gray-600">
+          <p
+            className="
+              text-xs
+              text-[var(--text-muted)]
+            "
+          >
             © 2026 Mansi Yadav. All rights reserved.
           </p>
 
@@ -155,6 +203,7 @@ function Footer() {
     </footer>
   );
 }
+
 
 // =====================================================
 // Export Component

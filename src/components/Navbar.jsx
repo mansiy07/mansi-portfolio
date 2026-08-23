@@ -1,21 +1,22 @@
 // ======================================================
-// File Name   : Navbar.jsx
-// Author      : Mansi Yadav
-// Purpose     : Portfolio Navigation Bar
-// Description : Responsive, sticky and modern navbar
+// File Name      : Navbar.jsx
+// Author         : Mansi Yadav
+// Purpose        : Portfolio Navigation Bar
+// Description    : Responsive navbar with Dark / Light mode
 // ======================================================
 
 import { useState } from "react";
 
 // ================= Navbar Component =================
 
-function Navbar() {
+function Navbar({ darkMode, toggleTheme }) {
 
   // ==================================================
   // Mobile Menu State
   // ==================================================
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   // ==================================================
   // Close Mobile Menu
@@ -25,16 +26,42 @@ function Navbar() {
     setIsMenuOpen(false);
   };
 
+
   return (
+
     // ==================================================
     // Main Navigation Bar
     // ==================================================
 
-    <nav className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/10">
+    <nav
+      className="
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        bg-[var(--bg)]
+        border-b
+        border-[var(--border)]
+        transition-colors
+        duration-300
+      "
+    >
 
       {/* ================= Main Container ================= */}
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          px-6
+          lg:px-12
+          h-20
+          flex
+          items-center
+          justify-between
+        "
+      >
 
         {/* ==================================================
             Logo
@@ -43,10 +70,19 @@ function Navbar() {
         <a
           href="#home"
           onClick={closeMenu}
-          className="text-2xl md:text-3xl font-extrabold tracking-wide group"
+          className="
+            text-2xl
+            md:text-3xl
+            font-bold
+            tracking-tight
+            text-[var(--text)]
+            hover:text-[var(--accent)]
+            transition-colors
+            duration-300
+          "
         >
           Mansi
-          <span className="text-cyan-400 group-hover:text-cyan-300 transition duration-300">
+          <span className="text-[var(--accent)]">
             .
           </span>
         </a>
@@ -56,139 +92,156 @@ function Navbar() {
             Desktop Navigation Links
         ================================================== */}
 
-        <ul className="hidden md:flex items-center gap-10 text-gray-300">
+        <ul
+          className="
+            hidden
+            md:flex
+            items-center
+            gap-10
+            text-[var(--text-secondary)]
+          "
+        >
 
-          {/* Home */}
+          {[
+            ["Home", "#home"],
+            ["About", "#about"],
+            ["Skills", "#skills"],
+            ["Projects", "#projects"],
+            ["Experience", "#experience"],
+            ["Contact", "#contact"],
+          ].map(([name, link]) => (
 
-          <li>
-            <a
-              href="#home"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              Home
+            <li key={name}>
 
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
+              <a
+                href={link}
+                className="
+                  relative
+                  py-2
+                  hover:text-[var(--accent)]
+                  transition-colors
+                  duration-300
+                  group
+                "
+              >
 
+                {name}
 
-          {/* About */}
+                <span
+                  className="
+                    absolute
+                    left-0
+                    -bottom-1
+                    w-0
+                    h-[1px]
+                    bg-[var(--accent)]
+                    group-hover:w-full
+                    transition-all
+                    duration-300
+                  "
+                />
 
-          <li>
-            <a
-              href="#about"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              About
+              </a>
 
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
+            </li>
 
-
-          {/* Skills */}
-
-          <li>
-            <a
-              href="#skills"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              Skills
-
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
-
-
-          {/* Projects */}
-
-          <li>
-            <a
-              href="#projects"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              Projects
-
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
-
-
-          {/* Experience */}
-
-          <li>
-            <a
-              href="#experience"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              Experience
-
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
-
-
-          {/* Contact */}
-
-          <li>
-            <a
-              href="#contact"
-              className="relative py-2 hover:text-cyan-400 transition duration-300 group"
-            >
-              Contact
-
-              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
+          ))}
 
         </ul>
 
 
         {/* ==================================================
-            Desktop Contact Button
+            Right Side Controls
         ================================================== */}
 
-        <a
-          href="#contact"
-          className="
-            hidden md:flex
-            items-center
-            px-5
-            py-2.5
-            rounded-full
-            border
-            border-cyan-400
-            text-cyan-400
-            font-semibold
-            hover:bg-cyan-400
-            hover:text-slate-950
-            hover:shadow-[0_0_20px_#22d3ee]
-            transition-all
-            duration-300
-          "
-        >
-          Let's Talk
-        </a>
+        <div className="flex items-center gap-3">
+
+          {/* ==================================================
+              Single Theme Toggle
+          ================================================== */}
+
+          <button
+            onClick={toggleTheme}
+            aria-label={
+              darkMode
+                ? "Switch to Light Mode"
+                : "Switch to Dark Mode"
+            }
+            title={
+              darkMode
+                ? "Switch to Light Mode"
+                : "Switch to Dark Mode"
+            }
+            className="
+              w-10
+              h-10
+              rounded-full
+              border
+              border-[var(--border)]
+              text-[var(--accent)]
+              bg-[var(--bg-card)]
+              flex
+              items-center
+              justify-center
+              text-lg
+              hover:bg-[var(--accent-soft)]
+              hover:border-[var(--accent-border)]
+              hover:scale-105
+              transition-all
+              duration-300
+            "
+          >
+            {darkMode ? "☀" : "☾"}
+          </button>
 
 
-        {/* ==================================================
-            Mobile Hamburger Button
-        ================================================== */}
+          {/* ==================================================
+              Desktop Contact Button
+          ================================================== */}
 
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="
-            md:hidden
-            text-cyan-400
-            text-3xl
-            focus:outline-none
-            transition-transform
-            duration-300
-          "
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? "✕" : "☰"}
-        </button>
+          <a
+            href="#contact"
+            className="
+              hidden
+              md:flex
+              items-center
+              px-5
+              py-2.5
+              rounded-md
+              border
+              border-[var(--accent-border)]
+              text-[var(--accent)]
+              font-semibold
+              hover:bg-[var(--accent)]
+              hover:text-[#111111]
+              transition-all
+              duration-300
+            "
+          >
+            Let's Talk
+          </a>
+
+
+          {/* ==================================================
+              Mobile Hamburger Button
+          ================================================== */}
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="
+              md:hidden
+              text-[var(--accent)]
+              text-3xl
+              focus:outline-none
+              transition-colors
+              duration-300
+            "
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? "✕" : "☰"}
+          </button>
+
+        </div>
 
       </div>
 
@@ -198,101 +251,62 @@ function Navbar() {
       ================================================== */}
 
       {isMenuOpen && (
+
         <div
           className="
             md:hidden
-            bg-slate-950/95
-            backdrop-blur-xl
+            bg-[var(--bg)]
             border-t
-            border-cyan-500/10
+            border-[var(--border)]
             px-6
             py-6
           "
         >
 
-          <ul className="flex flex-col items-center gap-6 text-gray-300">
+          <ul
+            className="
+              flex
+              flex-col
+              items-center
+              gap-6
+              text-[var(--text-secondary)]
+            "
+          >
 
-            {/* Home */}
+            {[
+              ["Home", "#home"],
+              ["About", "#about"],
+              ["Skills", "#skills"],
+              ["Projects", "#projects"],
+              ["Experience", "#experience"],
+              ["Contact", "#contact"],
+            ].map(([name, link]) => (
 
-            <li>
-              <a
-                href="#home"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                Home
-              </a>
-            </li>
+              <li key={name}>
 
+                <a
+                  href={link}
+                  onClick={closeMenu}
+                  className="
+                    hover:text-[var(--accent)]
+                    transition-colors
+                    duration-300
+                  "
+                >
+                  {name}
+                </a>
 
-            {/* About */}
+              </li>
 
-            <li>
-              <a
-                href="#about"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                About
-              </a>
-            </li>
-
-
-            {/* Skills */}
-
-            <li>
-              <a
-                href="#skills"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                Skills
-              </a>
-            </li>
+            ))}
 
 
-            {/* Projects */}
-
-            <li>
-              <a
-                href="#projects"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                Projects
-              </a>
-            </li>
-
-
-            {/* Experience */}
+            {/* ==================================================
+                Mobile Let's Talk
+            ================================================== */}
 
             <li>
-              <a
-                href="#experience"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                Experience
-              </a>
-            </li>
 
-
-            {/* Contact */}
-
-            <li>
-              <a
-                href="#contact"
-                onClick={closeMenu}
-                className="hover:text-cyan-400 transition duration-300"
-              >
-                Contact
-              </a>
-            </li>
-
-
-            {/* Let's Talk */}
-
-            <li>
               <a
                 href="#contact"
                 onClick={closeMenu}
@@ -301,25 +315,26 @@ function Navbar() {
                   items-center
                   px-6
                   py-2.5
-                  rounded-full
+                  rounded-md
                   border
-                  border-cyan-400
-                  text-cyan-400
+                  border-[var(--accent-border)]
+                  text-[var(--accent)]
                   font-semibold
-                  hover:bg-cyan-400
-                  hover:text-slate-950
-                  hover:shadow-[0_0_20px_#22d3ee]
+                  hover:bg-[var(--accent)]
+                  hover:text-[#111111]
                   transition-all
                   duration-300
                 "
               >
                 Let's Talk
               </a>
+
             </li>
 
           </ul>
 
         </div>
+
       )}
 
     </nav>

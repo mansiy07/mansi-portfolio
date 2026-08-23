@@ -2,7 +2,7 @@
 // File Name   : Hero.jsx
 // Purpose     : Hero Section
 // Author      : Mansi Yadav
-// Description : Portfolio ka main introduction section
+// Description : Clean and professional portfolio intro
 // =====================================================
 
 // ================= Imports =================
@@ -11,7 +11,6 @@ import Profile from "../assets/profile.png";
 import resume from "../assets/resume.pdf";
 
 import { TypeAnimation } from "react-type-animation";
-
 import { motion } from "framer-motion";
 
 import {
@@ -22,6 +21,7 @@ import {
   FaCode,
 } from "react-icons/fa";
 
+
 // =====================================================
 // Hero Component
 // =====================================================
@@ -29,60 +29,27 @@ import {
 function Hero() {
   return (
 
-    // ================= Hero Section =================
+    // =================================================
+    // Hero Section
+    // =================================================
 
     <section
       id="home"
       className="
         relative
         min-h-screen
+        w-full
         overflow-hidden
-        bg-[#080014]
-        text-white
+        bg-[var(--bg)]
+        text-[var(--text)]
         flex
         items-center
-        pt-24
-        pb-12
+        pt-28
+        pb-16
+        transition-colors
+        duration-300
       "
     >
-
-      {/* ================= Purple Background Glow ================= */}
-
-      <div
-        className="
-          absolute
-          top-20
-          left-1/4
-          w-[300px]
-          h-[300px]
-          md:w-[450px]
-          md:h-[450px]
-          bg-purple-700/20
-          rounded-full
-          blur-[120px]
-          md:blur-[140px]
-          pointer-events-none
-        "
-      ></div>
-
-
-      <div
-        className="
-          absolute
-          right-0
-          bottom-10
-          w-[300px]
-          h-[300px]
-          md:w-[500px]
-          md:h-[500px]
-          bg-fuchsia-700/20
-          rounded-full
-          blur-[120px]
-          md:blur-[150px]
-          pointer-events-none
-        "
-      ></div>
-
 
       {/* =================================================
           Main Container
@@ -112,26 +79,37 @@ function Hero() {
         ================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full text-center lg:text-left"
+          initial={{
+            opacity: 0,
+            x: -30,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="
+            w-full
+            text-center
+            lg:text-left
+          "
         >
 
           {/* ================= Greeting ================= */}
 
           <p
             className="
-              text-purple-300
-              text-base
-              sm:text-lg
-              md:text-xl
-              mb-3
-              md:mb-4
+              text-[var(--accent)]
+              text-sm
+              sm:text-base
+              font-medium
               tracking-wide
+              mb-4
             "
           >
-            👋 Hello, I'm
+            Hello, I'm
           </p>
 
 
@@ -143,29 +121,38 @@ function Hero() {
               sm:text-5xl
               md:text-6xl
               lg:text-7xl
-              font-extrabold
+              font-bold
               leading-tight
-              bg-gradient-to-r
-              from-purple-300
-              via-fuchsia-400
-              to-violet-500
-              bg-clip-text
-              text-transparent
-              whitespace-nowrap
+              tracking-tight
+              text-[var(--text)]
             "
           >
             Mansi Yadav
           </h1>
 
 
+          {/* ================= Accent Line ================= */}
+
+          <div
+            className="
+              w-14
+              h-[3px]
+              bg-[var(--accent)]
+              rounded-full
+              mt-5
+              mb-5
+              mx-auto
+              lg:mx-0
+            "
+          />
+
+
           {/* ================= Typing Animation ================= */}
 
           <div
             className="
-              mt-4
-              md:mt-5
-              min-h-[42px]
-              sm:min-h-[48px]
+              min-h-[38px]
+              sm:min-h-[44px]
             "
           >
 
@@ -177,10 +164,10 @@ function Hero() {
                 "Java Developer",
                 2000,
 
-                "Software Developer",
+                "Backend Developer",
                 2000,
 
-                "Backend Developer",
+                "Software Developer",
                 2000,
 
                 "Problem Solver",
@@ -195,25 +182,23 @@ function Hero() {
                 sm:text-2xl
                 md:text-3xl
                 font-semibold
-                text-purple-400
+                text-[var(--accent)]
                 leading-relaxed
-                break-words
               "
             />
 
           </div>
 
 
-          {/* ================= Description ================= */}
+          {/* ================= Main Description ================= */}
 
           <p
             className="
               text-sm
               sm:text-base
               md:text-lg
-              text-gray-300
-              mt-5
-              md:mt-6
+              text-[var(--text-secondary)]
+              mt-6
               leading-7
               md:leading-8
               max-w-xl
@@ -222,12 +207,20 @@ function Hero() {
             "
           >
             B.Tech Computer Science & Engineering student at{" "}
-            <span className="text-purple-300 font-medium">
+
+            <span
+              className="
+                text-[var(--text)]
+                font-medium
+              "
+            >
               Galgotias University
             </span>
+
             , passionate about building modern and scalable
             applications using{" "}
-            <span className="text-fuchsia-300">
+
+            <span className="text-[var(--accent)]">
               Java, Spring Boot, React, REST APIs and MySQL.
             </span>
           </p>
@@ -239,7 +232,7 @@ function Hero() {
             className="
               text-sm
               sm:text-base
-              text-gray-400
+              text-[var(--text-secondary)]
               mt-4
               leading-7
               max-w-xl
@@ -247,7 +240,7 @@ function Hero() {
               lg:mx-0
             "
           >
-            I enjoy solving problems, developing real-world projects
+            I enjoy solving problems, developing real-world projects,
             and continuously improving my software development skills
             through coding and practical learning.
           </p>
@@ -266,9 +259,7 @@ function Hero() {
               justify-center
               lg:justify-start
               gap-4
-              sm:gap-5
               mt-8
-              md:mt-9
             "
           >
 
@@ -277,33 +268,29 @@ function Hero() {
             <a
               href="#projects"
               className="
-                flex
+                inline-flex
                 items-center
                 justify-center
-                gap-3
-                bg-gradient-to-r
-                from-purple-600
-                to-fuchsia-600
-                text-white
-                font-semibold
+                gap-2
                 px-6
-                sm:px-7
-                py-3.5
-                rounded-xl
-                shadow-[0_0_25px_rgba(168,85,247,0.35)]
-                hover:from-purple-500
-                hover:to-fuchsia-500
-                hover:scale-105
-                hover:shadow-[0_0_35px_rgba(168,85,247,0.55)]
+                py-3
+                rounded-md
+                bg-[var(--accent)]
+                text-[#111111]
+                font-semibold
+                border
+                border-[var(--accent)]
+                hover:bg-[var(--accent-hover)]
+                hover:border-[var(--accent-hover)]
                 transition-all
                 duration-300
                 w-full
                 sm:w-auto
               "
             >
-              <FaArrowRight />
-
               View Projects
+
+              <FaArrowRight className="text-sm" />
 
             </a>
 
@@ -314,27 +301,26 @@ function Hero() {
               href={resume}
               download="Mansi_Yadav_Resume.pdf"
               className="
-                flex
+                inline-flex
                 items-center
                 justify-center
-                gap-3
-                border-2
-                border-purple-500
-                text-purple-200
+                gap-2
                 px-6
-                sm:px-7
-                py-3.5
-                rounded-xl
-                hover:bg-purple-600
-                hover:text-white
-                hover:scale-105
-                hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]
+                py-3
+                rounded-md
+                border
+                border-[var(--accent-border)]
+                text-[var(--accent)]
+                font-semibold
+                hover:bg-[var(--accent-soft)]
+                hover:border-[var(--accent)]
                 transition-all
                 duration-300
                 w-full
                 sm:w-auto
               "
             >
+
               <FaDownload />
 
               Resume
@@ -354,9 +340,8 @@ function Hero() {
               items-center
               justify-center
               lg:justify-start
-              gap-5
-              mt-8
-              md:mt-9
+              gap-4
+              mt-7
             "
           >
 
@@ -369,21 +354,19 @@ function Hero() {
               aria-label="GitHub"
               title="GitHub"
               className="
-                w-12
-                h-12
-                rounded-full
+                w-10
+                h-10
+                rounded-md
                 border
-                border-purple-500/40
+                border-[var(--border)]
                 flex
                 items-center
                 justify-center
-                text-xl
-                text-gray-300
-                hover:text-white
-                hover:border-purple-400
-                hover:bg-purple-600/20
-                hover:scale-110
-                hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]
+                text-lg
+                text-[var(--text-secondary)]
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent-border)]
+                hover:bg-[var(--accent-soft)]
                 transition-all
                 duration-300
               "
@@ -401,21 +384,19 @@ function Hero() {
               aria-label="LinkedIn"
               title="LinkedIn"
               className="
-                w-12
-                h-12
-                rounded-full
+                w-10
+                h-10
+                rounded-md
                 border
-                border-purple-500/40
+                border-[var(--border)]
                 flex
                 items-center
                 justify-center
-                text-xl
-                text-gray-300
-                hover:text-white
-                hover:border-purple-400
-                hover:bg-purple-600/20
-                hover:scale-110
-                hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]
+                text-lg
+                text-[var(--text-secondary)]
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent-border)]
+                hover:bg-[var(--accent-soft)]
                 transition-all
                 duration-300
               "
@@ -433,21 +414,19 @@ function Hero() {
               aria-label="Codolio"
               title="Codolio"
               className="
-                w-12
-                h-12
-                rounded-full
+                w-10
+                h-10
+                rounded-md
                 border
-                border-purple-500/40
+                border-[var(--border)]
                 flex
                 items-center
                 justify-center
-                text-xl
-                text-gray-300
-                hover:text-white
-                hover:border-purple-400
-                hover:bg-purple-600/20
-                hover:scale-110
-                hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]
+                text-lg
+                text-[var(--text-secondary)]
+                hover:text-[var(--accent)]
+                hover:border-[var(--accent-border)]
+                hover:bg-[var(--accent-soft)]
                 transition-all
                 duration-300
               "
@@ -465,12 +444,17 @@ function Hero() {
         ================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{
+            opacity: 0,
+            x: 30,
+          }}
           animate={{
             opacity: 1,
             x: 0,
           }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 0.7,
+          }}
           className="
             w-full
             flex
@@ -481,17 +465,9 @@ function Hero() {
           "
         >
 
-          {/* ================= Floating Image Wrapper ================= */}
+          {/* ================= Image Container ================= */}
 
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+          <div
             className="
               relative
               flex
@@ -500,26 +476,24 @@ function Hero() {
             "
           >
 
-            {/* ================= Soft Purple Glow ================= */}
+            {/* ================= Simple Outer Circle ================= */}
 
             <div
               className="
                 absolute
-                w-[260px]
-                h-[260px]
-                sm:w-[320px]
-                sm:h-[320px]
-                md:w-[380px]
-                md:h-[380px]
-                lg:w-[450px]
-                lg:h-[450px]
+                w-[280px]
+                h-[280px]
+                sm:w-[340px]
+                sm:h-[340px]
+                md:w-[390px]
+                md:h-[390px]
+                lg:w-[430px]
+                lg:h-[430px]
                 rounded-full
-                bg-purple-600/40
-                blur-[80px]
-                md:blur-[100px]
-                animate-pulse
+                border
+                border-[var(--accent-border)]
               "
-            ></div>
+            />
 
 
             {/* ================= Profile Image ================= */}
@@ -530,29 +504,27 @@ function Hero() {
               className="
                 relative
                 z-10
-                w-[240px]
-                h-[240px]
+                w-[250px]
+                h-[250px]
                 sm:w-[300px]
                 sm:h-[300px]
                 md:w-[350px]
                 md:h-[350px]
-                lg:w-[410px]
-                lg:h-[410px]
+                lg:w-[390px]
+                lg:h-[390px]
                 object-cover
                 object-center
                 rounded-full
-                border-4
-                border-purple-500
-                shadow-[0_0_55px_rgba(168,85,247,0.55)]
-                hover:border-fuchsia-400
-                hover:shadow-[0_0_80px_rgba(217,70,239,0.6)]
-                hover:scale-105
+                border
+                border-[var(--accent-border)]
+                bg-[var(--bg-card)]
+                hover:border-[var(--accent)]
                 transition-all
-                duration-500
+                duration-300
               "
             />
 
-          </motion.div>
+          </div>
 
         </motion.div>
 

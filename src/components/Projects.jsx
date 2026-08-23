@@ -2,9 +2,8 @@
 // File Name   : Projects.jsx
 // Purpose     : Projects Section
 // Author      : Mansi Yadav
+// Description : Clean and professional project showcase
 // =====================================================
-
-// ================= Imports =================
 
 import { motion } from "framer-motion";
 
@@ -17,13 +16,16 @@ import {
   FaReact,
 } from "react-icons/fa";
 
+
 // =====================================================
 // Projects Component
 // =====================================================
 
 function Projects() {
 
-  // ================= Projects Data =================
+  // =====================================================
+  // Projects Data
+  // =====================================================
 
   const projects = [
     {
@@ -58,6 +60,7 @@ function Projects() {
       github: "https://github.com/mansiy07/SehatAI",
     },
 
+
     {
       title: "Web Scientific Calculator",
 
@@ -87,6 +90,7 @@ function Projects() {
         "https://github.com/mansiy07/Web-Scientific-Calculator-Project",
     },
 
+
     {
       title: "Smart ChatBot",
 
@@ -104,15 +108,18 @@ function Projects() {
         },
       ],
 
-      github: "https://github.com/mansiy07/Smart-ChatBot-",
+      github:
+        "https://github.com/mansiy07/Smart-ChatBot-",
     },
   ];
+
 
   // =====================================================
   // Return
   // =====================================================
 
   return (
+
     <section
       id="projects"
       className="
@@ -120,45 +127,16 @@ function Projects() {
         min-h-screen
         w-full
         overflow-hidden
-        bg-[#080014]
-        text-white
-        py-24
+        bg-[var(--bg)]
+        text-[var(--text)]
+        pt-28
+        pb-20
+        sm:pt-32
+        sm:pb-24
+        transition-colors
+        duration-300
       "
     >
-
-      {/* =================================================
-          PURPLE BACKGROUND GLOW
-      ================================================= */}
-
-      <div
-        className="
-          absolute
-          top-10
-          left-1/2
-          -translate-x-1/2
-          w-[500px]
-          h-[500px]
-          bg-purple-700/10
-          rounded-full
-          blur-[150px]
-          pointer-events-none
-        "
-      ></div>
-
-      <div
-        className="
-          absolute
-          right-0
-          bottom-0
-          w-[400px]
-          h-[400px]
-          bg-fuchsia-700/10
-          rounded-full
-          blur-[140px]
-          pointer-events-none
-        "
-      ></div>
-
 
       {/* =================================================
           MAIN CONTAINER
@@ -171,7 +149,8 @@ function Projects() {
           w-full
           max-w-7xl
           mx-auto
-          px-6
+          px-5
+          sm:px-6
           lg:px-12
         "
       >
@@ -181,79 +160,89 @@ function Projects() {
         ================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: -35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          initial={{
+            opacity: 0,
+            y: -25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          viewport={{
+            once: true,
+          }}
           className="text-center"
         >
 
+          {/* ================= Small Heading ================= */}
+
           <p
             className="
-              text-purple-400
-              text-sm
+              text-[var(--accent)]
+              text-xs
+              sm:text-sm
               uppercase
-              tracking-[0.35em]
+              tracking-[0.25em]
               font-semibold
-              mb-4
+              mb-3
             "
           >
             What I've Built
           </p>
 
+
+          {/* ================= Main Heading ================= */}
+
           <h2
             className="
-              text-5xl
+              text-4xl
+              sm:text-5xl
               md:text-6xl
-              font-extrabold
+              font-bold
+              leading-tight
+              text-[var(--text)]
             "
           >
-            My{" "}
-
-            <span
-              className="
-                bg-gradient-to-r
-                from-purple-300
-                via-fuchsia-400
-                to-violet-500
-                bg-clip-text
-                text-transparent
-              "
-            >
-              Projects
-            </span>
+            My Projects
           </h2>
 
-          {/* Purple underline */}
+
+          {/* ================= Accent Line ================= */}
 
           <div
             className="
-              w-24
-              h-1
+              w-14
+              h-[3px]
               mx-auto
-              mt-6
+              mt-5
               rounded-full
-              bg-gradient-to-r
-              from-purple-500
-              via-fuchsia-500
-              to-violet-500
-              shadow-[0_0_20px_rgba(168,85,247,0.6)]
+              bg-[var(--accent)]
             "
-          ></div>
+          />
+
+
+          {/* ================= Description ================= */}
 
           <p
             className="
-              text-gray-400
-              mt-6
-              text-base
+              text-[var(--text-secondary)]
+              mt-5
+              sm:mt-6
+              text-sm
+              sm:text-base
               md:text-lg
               max-w-2xl
               mx-auto
-              leading-8
+              leading-7
+              sm:leading-8
             "
           >
             A selection of projects where I have applied my
-            programming, full-stack development and problem-solving skills.
+            programming, full-stack development and problem-solving
+            skills.
           </p>
 
         </motion.div>
@@ -265,11 +254,14 @@ function Projects() {
 
         <div
           className="
-            mt-14
+            mt-10
+            sm:mt-14
             grid
+            grid-cols-1
             md:grid-cols-2
             xl:grid-cols-3
-            gap-7
+            gap-5
+            lg:gap-6
           "
         >
 
@@ -277,70 +269,67 @@ function Projects() {
 
             <motion.article
               key={project.title}
+
               initial={{
                 opacity: 0,
-                y: 45,
+                y: 30,
               }}
+
               whileInView={{
                 opacity: 1,
                 y: 0,
               }}
+
               viewport={{
                 once: true,
+                amount: 0.15,
               }}
+
               transition={{
-                duration: 0.55,
+                duration: 0.5,
                 delay: index * 0.08,
               }}
+
               whileHover={{
-                y: -7,
+                y: -5,
               }}
+
               className="
                 group
                 relative
                 flex
                 flex-col
-                min-h-[420px]
-                p-7
-                rounded-2xl
-                bg-gradient-to-br
-                from-purple-950/40
-                via-[#130a21]
-                to-[#090014]
+                min-h-[400px]
+                p-5
+                sm:p-7
+                rounded-xl
+                sm:rounded-2xl
+                bg-[var(--bg-card)]
                 border
-                border-purple-500/25
-                shadow-[0_0_25px_rgba(168,85,247,0.05)]
-                hover:border-purple-400/60
-                hover:shadow-[0_0_35px_rgba(168,85,247,0.16)]
+                border-[var(--border)]
+                hover:border-[var(--accent-border)]
                 transition-all
                 duration-300
               "
             >
 
-              {/* ================= Top Line ================= */}
+              {/* =================================================
+                  Project Number + GitHub
+              ================================================= */}
 
               <div
                 className="
-                  absolute
-                  top-0
-                  left-8
-                  right-8
-                  h-[1px]
-                  bg-gradient-to-r
-                  from-transparent
-                  via-purple-500/70
-                  to-transparent
+                  flex
+                  items-center
+                  justify-between
                 "
-              ></div>
+              >
 
-
-              {/* ================= Project Number ================= */}
-
-              <div className="flex items-center justify-between">
+                {/* Project Number */}
 
                 <span
                   className="
-                    text-purple-400
+                    text-[var(--accent)]
                     text-xs
                     font-semibold
                     tracking-[0.2em]
@@ -357,10 +346,12 @@ function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${project.title} GitHub repository`}
+                  title="View GitHub Repository"
                   className="
-                    text-2xl
-                    text-gray-400
-                    hover:text-purple-400
+                    text-xl
+                    sm:text-2xl
+                    text-[var(--text-secondary)]
+                    hover:text-[var(--accent)]
                     hover:scale-110
                     transition-all
                     duration-300
@@ -372,15 +363,18 @@ function Projects() {
               </div>
 
 
-              {/* ================= Project Title ================= */}
+              {/* =================================================
+                  Project Title
+              ================================================= */}
 
               <h3
                 className="
-                  text-2xl
+                  text-xl
+                  sm:text-2xl
                   font-bold
-                  mt-7
-                  text-gray-100
-                  group-hover:text-purple-300
+                  mt-6
+                  text-[var(--text)]
+                  group-hover:text-[var(--accent)]
                   transition-colors
                   duration-300
                 "
@@ -389,11 +383,15 @@ function Projects() {
               </h3>
 
 
-              {/* ================= Description ================= */}
+              {/* =================================================
+                  Description
+              ================================================= */}
 
               <p
                 className="
-                  text-gray-400
+                  text-[var(--text-secondary)]
+                  text-sm
+                  sm:text-base
                   leading-7
                   mt-4
                 "
@@ -402,13 +400,15 @@ function Projects() {
               </p>
 
 
-              {/* ================= Technologies ================= */}
+              {/* =================================================
+                  Technologies
+              ================================================= */}
 
               <div
                 className="
                   flex
                   flex-wrap
-                  gap-2.5
+                  gap-2
                   mt-6
                 "
               >
@@ -423,16 +423,21 @@ function Projects() {
                       gap-2
                       px-3
                       py-2
-                      rounded-lg
-                      bg-purple-500/5
+                      rounded-md
+                      bg-[var(--accent-soft)]
                       border
-                      border-purple-500/20
-                      text-gray-300
-                      text-sm
+                      border-[var(--border)]
+                      text-[var(--text-secondary)]
+                      text-xs
+                      sm:text-sm
+                      hover:border-[var(--accent-border)]
+                      hover:text-[var(--accent)]
+                      transition-all
+                      duration-300
                     "
                   >
 
-                    <span className="text-purple-400">
+                    <span className="text-[var(--accent)]">
                       {technology.icon}
                     </span>
 
@@ -445,7 +450,9 @@ function Projects() {
               </div>
 
 
-              {/* ================= GitHub Button ================= */}
+              {/* =================================================
+                  GitHub Button
+              ================================================= */}
 
               <div className="mt-auto pt-8">
 
@@ -459,22 +466,24 @@ function Projects() {
                     gap-2
                     px-5
                     py-2.5
-                    rounded-xl
+                    rounded-md
                     border
-                    border-purple-500/60
-                    text-purple-300
+                    border-[var(--accent-border)]
+                    text-[var(--accent)]
                     font-semibold
-                    hover:bg-purple-600
-                    hover:text-white
-                    hover:border-purple-400
-                    hover:shadow-[0_0_20px_rgba(168,85,247,0.25)]
+                    text-sm
+                    hover:bg-[var(--accent)]
+                    hover:text-[#111111]
+                    hover:border-[var(--accent)]
                     transition-all
                     duration-300
                   "
                 >
+
                   <FaGithub />
 
                   View on GitHub
+
                 </a>
 
               </div>

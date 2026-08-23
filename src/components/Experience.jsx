@@ -2,6 +2,7 @@
 // File Name   : Experience.jsx
 // Purpose     : Experience & Internship Section
 // Author      : Mansi Yadav
+// Description : Clean professional experience timeline
 // =====================================================
 
 import { motion } from "framer-motion";
@@ -9,11 +10,10 @@ import { motion } from "framer-motion";
 import {
   FaBriefcase,
   FaChartBar,
-  FaPython,
-  FaDatabase,
   FaAward,
   FaExternalLinkAlt,
 } from "react-icons/fa";
+
 
 // =====================================================
 // Experience Component
@@ -21,7 +21,9 @@ import {
 
 function Experience() {
 
-  // ================= Experience Data =================
+  // =====================================================
+  // Experience Data
+  // =====================================================
 
   const experiences = [
     {
@@ -54,6 +56,7 @@ function Experience() {
       badge: "AICTE Internship",
     },
 
+
     {
       type: "ACADEMIC INTERNSHIP",
       title: "Data Analytics with AI",
@@ -80,65 +83,38 @@ function Experience() {
       ],
 
       badge: "Completed",
+
       link:
         "https://skills.yourlearning.ibm.com/activity/PLAN-D44A9C2C463C",
     },
   ];
+
 
   // =====================================================
   // Return
   // =====================================================
 
   return (
+
     <section
       id="experience"
       className="
         relative
         min-h-screen
         w-full
-        overflow-hidden
-        bg-[#080014]
-        text-white
-        py-24
+        bg-[var(--bg)]
+        text-[var(--text)]
+        pt-28
+        pb-20
+        sm:pt-32
+        sm:pb-24
+        transition-colors
+        duration-300
       "
     >
 
       {/* =================================================
-          Background Glow
-      ================================================= */}
-
-      <div
-        className="
-          absolute
-          top-20
-          left-1/2
-          -translate-x-1/2
-          w-[550px]
-          h-[550px]
-          bg-purple-700/10
-          rounded-full
-          blur-[160px]
-          pointer-events-none
-        "
-      ></div>
-
-      <div
-        className="
-          absolute
-          right-0
-          bottom-0
-          w-[450px]
-          h-[450px]
-          bg-fuchsia-700/10
-          rounded-full
-          blur-[150px]
-          pointer-events-none
-        "
-      ></div>
-
-
-      {/* =================================================
-          Main Container
+          MAIN CONTAINER
       ================================================= */}
 
       <div
@@ -147,85 +123,95 @@ function Experience() {
           z-10
           max-w-7xl
           mx-auto
-          px-6
+          px-5
+          sm:px-6
           lg:px-12
         "
       >
 
         {/* =================================================
-            Section Heading
+            SECTION HEADING
         ================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: -35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          initial={{
+            opacity: 0,
+            y: -25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          viewport={{
+            once: true,
+          }}
           className="text-center"
         >
 
+          {/* ================= Small Heading ================= */}
+
           <p
             className="
-              text-purple-400
-              text-sm
+              text-[var(--accent)]
+              text-xs
+              sm:text-sm
               uppercase
-              tracking-[0.35em]
+              tracking-[0.25em]
               font-semibold
-              mb-4
+              mb-3
             "
           >
             My Journey
           </p>
 
+
+          {/* ================= Main Heading ================= */}
+
           <h2
             className="
               text-4xl
+              sm:text-5xl
               md:text-6xl
-              font-extrabold
+              font-bold
+              leading-tight
+              text-[var(--text)]
             "
           >
-            Experience{" "}
-
-            <span
-              className="
-                bg-gradient-to-r
-                from-purple-300
-                via-fuchsia-400
-                to-violet-500
-                bg-clip-text
-                text-transparent
-              "
-            >
-              & Learning
-            </span>
+            Experience & Learning
           </h2>
 
-          {/* Underline */}
+
+          {/* ================= Accent Line ================= */}
 
           <div
             className="
-              w-24
-              h-1
+              w-14
+              h-[3px]
               mx-auto
-              mt-6
+              mt-5
               rounded-full
-              bg-gradient-to-r
-              from-purple-500
-              via-fuchsia-500
-              to-violet-500
-              shadow-[0_0_20px_rgba(168,85,247,0.6)]
+              bg-[var(--accent)]
             "
-          ></div>
+          />
+
+
+          {/* ================= Description ================= */}
 
           <p
             className="
-              text-gray-400
-              mt-6
-              text-base
+              text-[var(--text-secondary)]
+              mt-5
+              sm:mt-6
+              text-sm
+              sm:text-base
               md:text-lg
               max-w-2xl
               mx-auto
-              leading-8
+              leading-7
+              sm:leading-8
             "
           >
             My internship experience, practical learning and journey
@@ -236,12 +222,12 @@ function Experience() {
 
 
         {/* =================================================
-            Experience Timeline
+            EXPERIENCE TIMELINE
         ================================================= */}
 
-        <div className="relative mt-16">
+        <div className="relative mt-12 sm:mt-16">
 
-          {/* Timeline Line */}
+          {/* ================= Timeline Line ================= */}
 
           <div
             className="
@@ -252,38 +238,41 @@ function Experience() {
               top-0
               bottom-0
               w-px
-              bg-gradient-to-b
-              from-purple-500/0
-              via-purple-500/50
-              to-purple-500/0
+              bg-[var(--accent-border)]
               -translate-x-1/2
             "
-          ></div>
+          />
 
 
-          {/* Experience Cards */}
+          {/* ================= Experience Cards ================= */}
 
-          <div className="space-y-12">
+          <div className="space-y-10 sm:space-y-12">
 
             {experiences.map((experience, index) => (
 
               <motion.div
                 key={experience.company}
+
                 initial={{
                   opacity: 0,
-                  y: 50,
+                  y: 30,
                 }}
+
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
+
                 viewport={{
                   once: true,
+                  amount: 0.15,
                 }}
+
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.15,
+                  duration: 0.55,
+                  delay: index * 0.12,
                 }}
+
                 className={`
                   relative
                   flex
@@ -295,7 +284,9 @@ function Experience() {
                 `}
               >
 
-                {/* Timeline Dot */}
+                {/* =================================================
+                    Timeline Dot
+                ================================================= */}
 
                 <div
                   className="
@@ -305,19 +296,20 @@ function Experience() {
                     left-1/2
                     top-10
                     -translate-x-1/2
-                    w-5
-                    h-5
+                    w-4
+                    h-4
                     rounded-full
-                    bg-purple-500
+                    bg-[var(--accent)]
                     border-4
-                    border-[#080014]
-                    shadow-[0_0_20px_rgba(168,85,247,0.9)]
+                    border-[var(--bg)]
                     z-20
                   "
-                ></div>
+                />
 
 
-                {/* Card */}
+                {/* =================================================
+                    Experience Card
+                ================================================= */}
 
                 <div
                   className="
@@ -325,64 +317,55 @@ function Experience() {
                     relative
                     w-full
                     md:w-[46%]
-                    rounded-2xl
-                    p-7
+                    rounded-xl
+                    sm:rounded-2xl
+                    p-5
+                    sm:p-7
                     md:p-8
-                    bg-gradient-to-br
-                    from-purple-950/50
-                    via-[#130a21]
-                    to-[#090014]
+                    bg-[var(--bg-card)]
                     border
-                    border-purple-500/25
-                    shadow-[0_0_25px_rgba(168,85,247,0.05)]
-                    hover:border-purple-400/60
-                    hover:shadow-[0_0_35px_rgba(168,85,247,0.18)]
+                    border-[var(--border)]
+                    hover:border-[var(--accent-border)]
                     transition-all
                     duration-300
                   "
                 >
 
-                  {/* Top Glow */}
+                  {/* =================================================
+                      Header
+                  ================================================= */}
 
                   <div
                     className="
-                      absolute
-                      top-0
-                      left-8
-                      right-8
-                      h-px
-                      bg-gradient-to-r
-                      from-transparent
-                      via-purple-500
-                      to-transparent
-                      opacity-60
+                      flex
+                      items-start
+                      gap-4
+                      sm:gap-5
                     "
-                  ></div>
+                  >
 
-
-                  {/* Header */}
-
-                  <div className="flex items-start gap-5">
-
-                    {/* Icon */}
+                    {/* ================= Icon ================= */}
 
                     <div
                       className="
                         flex
                         items-center
                         justify-center
-                        w-14
-                        h-14
+                        w-12
+                        h-12
+                        sm:w-14
+                        sm:h-14
                         shrink-0
-                        rounded-xl
-                        bg-purple-900/40
+                        rounded-lg
+                        sm:rounded-xl
+                        bg-[var(--accent-soft)]
                         border
-                        border-purple-500/30
-                        text-purple-400
-                        text-xl
-                        group-hover:text-fuchsia-400
+                        border-[var(--accent-border)]
+                        text-[var(--accent)]
+                        text-lg
+                        sm:text-xl
                         group-hover:scale-105
-                        transition-all
+                        transition-transform
                         duration-300
                       "
                     >
@@ -390,37 +373,44 @@ function Experience() {
                     </div>
 
 
-                    {/* Title */}
+                    {/* ================= Title ================= */}
 
                     <div className="flex-1">
 
                       <p
                         className="
-                          text-purple-400
-                          text-xs
+                          text-[var(--accent)]
+                          text-[10px]
+                          sm:text-xs
                           font-bold
-                          tracking-[0.2em]
+                          tracking-[0.15em]
+                          sm:tracking-[0.2em]
                           uppercase
                         "
                       >
                         {experience.type}
                       </p>
 
+
                       <h3
                         className="
-                          text-xl
+                          text-lg
+                          sm:text-xl
                           md:text-2xl
                           font-bold
-                          text-white
+                          text-[var(--text)]
                           mt-1
                         "
                       >
                         {experience.title}
                       </h3>
 
+
                       <p
                         className="
-                          text-purple-300
+                          text-[var(--accent)]
+                          text-sm
+                          sm:text-base
                           font-medium
                           mt-1
                         "
@@ -433,46 +423,58 @@ function Experience() {
                   </div>
 
 
-                  {/* Duration */}
+                  {/* =================================================
+                      Duration
+                  ================================================= */}
 
                   <div
                     className="
                       mt-5
                       inline-flex
                       items-center
-                      px-4
+                      px-3
+                      sm:px-4
                       py-1.5
                       rounded-full
-                      bg-purple-500/10
+                      bg-[var(--accent-soft)]
                       border
-                      border-purple-500/20
-                      text-purple-300
-                      text-sm
+                      border-[var(--accent-border)]
+                      text-[var(--accent)]
+                      text-xs
+                      sm:text-sm
                     "
                   >
                     {experience.duration}
                   </div>
 
 
-                  {/* Program */}
+                  {/* =================================================
+                      Program
+                  ================================================= */}
 
                   <p
                     className="
                       mt-5
-                      text-gray-300
+                      text-[var(--text)]
                       font-medium
+                      text-sm
+                      sm:text-base
                     "
                   >
                     {experience.program}
                   </p>
 
 
-                  {/* Description */}
+                  {/* =================================================
+                      Description
+                  ================================================= */}
 
                   <p
                     className="
                       mt-4
-                      text-gray-400
+                      text-[var(--text-secondary)]
+                      text-sm
+                      sm:text-base
                       leading-7
                     "
                   >
@@ -480,15 +482,18 @@ function Experience() {
                   </p>
 
 
-                  {/* Responsibilities */}
+                  {/* =================================================
+                      Key Highlights
+                  ================================================= */}
 
                   <div className="mt-6">
 
                     <h4
                       className="
-                        text-sm
+                        text-xs
+                        sm:text-sm
                         font-semibold
-                        text-purple-300
+                        text-[var(--accent)]
                         uppercase
                         tracking-wider
                         mb-3
@@ -496,6 +501,7 @@ function Experience() {
                     >
                       Key Highlights
                     </h4>
+
 
                     <ul className="space-y-2.5">
 
@@ -507,8 +513,9 @@ function Experience() {
                             flex
                             items-start
                             gap-3
-                            text-sm
-                            text-gray-400
+                            text-xs
+                            sm:text-sm
+                            text-[var(--text-secondary)]
                             leading-6
                           "
                         >
@@ -520,11 +527,13 @@ function Experience() {
                               h-1.5
                               shrink-0
                               rounded-full
-                              bg-purple-400
+                              bg-[var(--accent)]
                             "
-                          ></span>
+                          />
 
-                          <span>{point}</span>
+                          <span>
+                            {point}
+                          </span>
 
                         </li>
 
@@ -535,7 +544,9 @@ function Experience() {
                   </div>
 
 
-                  {/* Skills */}
+                  {/* =================================================
+                      Skills
+                  ================================================= */}
 
                   <div
                     className="
@@ -554,14 +565,17 @@ function Experience() {
                           px-3
                           py-1.5
                           rounded-full
-                          text-xs
+                          text-[10px]
+                          sm:text-xs
                           font-medium
-                          text-purple-300
-                          bg-purple-500/10
+                          text-[var(--accent)]
+                          bg-[var(--accent-soft)]
                           border
-                          border-purple-500/25
-                          hover:bg-purple-500/20
-                          transition
+                          border-[var(--accent-border)]
+                          hover:bg-[var(--accent)]
+                          hover:text-[#111111]
+                          transition-all
+                          duration-300
                         "
                       >
                         {skill}
@@ -572,9 +586,12 @@ function Experience() {
                   </div>
 
 
-                  {/* IBM Link */}
+                  {/* =================================================
+                      IBM SkillsBuild Link
+                  ================================================= */}
 
                   {experience.link && (
+
                     <a
                       href={experience.link}
                       target="_blank"
@@ -586,18 +603,27 @@ function Experience() {
                         mt-6
                         text-sm
                         font-semibold
-                        text-purple-400
-                        hover:text-fuchsia-400
+                        text-[var(--accent)]
+                        hover:text-[var(--accent-hover)]
                         transition-colors
+                        duration-300
                       "
                     >
+
                       View IBM SkillsBuild
-                      <FaExternalLinkAlt className="text-xs" />
+
+                      <FaExternalLinkAlt
+                        className="text-xs"
+                      />
+
                     </a>
+
                   )}
 
 
-                  {/* Badge */}
+                  {/* =================================================
+                      Badge
+                  ================================================= */}
 
                   <div
                     className="
@@ -610,11 +636,14 @@ function Experience() {
                       gap-2
                       text-xs
                       font-semibold
-                      text-purple-300
+                      text-[var(--accent)]
                     "
                   >
+
                     <FaAward />
+
                     {experience.badge}
+
                   </div>
 
                 </div>
@@ -632,6 +661,7 @@ function Experience() {
     </section>
   );
 }
+
 
 // =====================================================
 // Export Component

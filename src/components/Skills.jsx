@@ -1,8 +1,8 @@
 // =====================================================
 // File Name   : Skills.jsx
-// Author      : Mansi Yadav
 // Purpose     : Skills Section
-// Description : Full Stack Developer Skills Showcase
+// Author      : Mansi Yadav
+// Description : Clean and professional skills showcase
 // =====================================================
 
 import { motion } from "framer-motion";
@@ -23,6 +23,7 @@ import {
   SiIntellijidea,
 } from "react-icons/si";
 
+
 // =====================================================
 // Skills Component
 // =====================================================
@@ -36,7 +37,9 @@ function Skills() {
   const skillCategories = [
     {
       title: "Frontend Development",
-      description: "Building responsive and interactive user interfaces.",
+      description:
+        "Building responsive and interactive user interfaces.",
+
       skills: [
         {
           name: "HTML",
@@ -59,7 +62,9 @@ function Skills() {
 
     {
       title: "Backend Development",
-      description: "Developing backend applications and RESTful APIs.",
+      description:
+        "Developing backend applications and RESTful APIs.",
+
       skills: [
         {
           name: "Java",
@@ -78,7 +83,9 @@ function Skills() {
 
     {
       title: "Database & Tools",
-      description: "Working with databases, APIs and development tools.",
+      description:
+        "Working with databases, APIs and development tools.",
+
       skills: [
         {
           name: "MySQL",
@@ -101,7 +108,9 @@ function Skills() {
 
     {
       title: "Core Skills",
-      description: "Strong foundation in programming and problem solving.",
+      description:
+        "Strong foundation in programming and problem solving.",
+
       skills: [
         {
           name: "OOP",
@@ -123,63 +132,27 @@ function Skills() {
     },
   ];
 
+
   // =====================================================
   // Return
   // =====================================================
 
   return (
+
     <section
       id="skills"
       className="
         relative
         min-h-screen
         w-full
-        overflow-hidden
-        bg-[#080014]
-        text-white
+        bg-[var(--bg)]
+        text-[var(--text)]
         py-20
         sm:py-24
+        transition-colors
+        duration-300
       "
     >
-
-      {/* =================================================
-          BACKGROUND GLOW
-      ================================================= */}
-
-      <div
-        className="
-          absolute
-          top-10
-          left-1/2
-          -translate-x-1/2
-          w-[300px]
-          h-[300px]
-          sm:w-[500px]
-          sm:h-[500px]
-          bg-purple-700/10
-          rounded-full
-          blur-[120px]
-          sm:blur-[150px]
-          pointer-events-none
-        "
-      />
-
-      <div
-        className="
-          absolute
-          right-[-100px]
-          bottom-0
-          w-[300px]
-          h-[300px]
-          sm:w-[400px]
-          sm:h-[400px]
-          bg-fuchsia-700/10
-          rounded-full
-          blur-[110px]
-          sm:blur-[140px]
-          pointer-events-none
-        "
-      />
 
       {/* =================================================
           MAIN CONTAINER
@@ -203,76 +176,73 @@ function Skills() {
         ================================================= */}
 
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center"
+          initial={{
+            opacity: 0,
+            y: -25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="
+            text-center
+          "
         >
 
           <p
             className="
-              text-purple-400
+              text-[var(--accent)]
               text-xs
               sm:text-sm
               uppercase
-              tracking-[0.3em]
-              sm:tracking-[0.35em]
+              tracking-[0.25em]
               font-semibold
               mb-3
-              sm:mb-4
             "
           >
             What I Work With
           </p>
+
 
           <h2
             className="
               text-4xl
               sm:text-5xl
               md:text-6xl
-              font-extrabold
+              font-bold
               leading-tight
+              text-[var(--text)]
             "
           >
-            My{" "}
-
-            <span
-              className="
-                bg-gradient-to-r
-                from-purple-300
-                via-fuchsia-400
-                to-violet-500
-                bg-clip-text
-                text-transparent
-              "
-            >
-              Skills
-            </span>
+            My Skills
           </h2>
 
-          {/* Underline */}
+
+          {/* ================= Accent Line ================= */}
 
           <div
             className="
-              w-16
-              sm:w-24
-              h-1
+              w-14
+              h-[3px]
               mx-auto
-              mt-4
-              sm:mt-6
+              mt-5
               rounded-full
-              bg-gradient-to-r
-              from-purple-500
-              via-fuchsia-500
-              to-violet-500
-              shadow-[0_0_20px_rgba(168,85,247,0.6)]
+              bg-[var(--accent)]
             "
           />
 
+
+          {/* ================= Description ================= */}
+
           <p
             className="
-              text-gray-400
+              text-[var(--text-secondary)]
               mt-5
               sm:mt-6
               text-sm
@@ -314,7 +284,7 @@ function Skills() {
               key={category.title}
               initial={{
                 opacity: 0,
-                y: 35,
+                y: 25,
               }}
               whileInView={{
                 opacity: 1,
@@ -331,44 +301,18 @@ function Skills() {
               className="
                 group
                 relative
-                rounded-2xl
-                sm:rounded-3xl
+                rounded-xl
+                sm:rounded-2xl
                 p-5
                 sm:p-7
-                bg-gradient-to-br
-                from-purple-950/45
-                via-[#130a21]
-                to-[#090014]
+                bg-[var(--bg-card)]
                 border
-                border-purple-500/25
-                shadow-[0_0_25px_rgba(168,85,247,0.05)]
-                hover:border-purple-400/60
-                hover:shadow-[0_0_35px_rgba(168,85,247,0.15)]
+                border-[var(--border)]
+                hover:border-[var(--accent-border)]
                 transition-all
                 duration-300
               "
             >
-
-              {/* ================= Top Glow ================= */}
-
-              <div
-                className="
-                  absolute
-                  top-0
-                  left-8
-                  right-8
-                  h-[1px]
-                  bg-gradient-to-r
-                  from-transparent
-                  via-purple-500/70
-                  to-transparent
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-opacity
-                  duration-300
-                "
-              />
-
 
               {/* ================= Category Heading ================= */}
 
@@ -379,8 +323,8 @@ function Skills() {
                     text-xl
                     sm:text-2xl
                     font-bold
-                    text-gray-100
-                    group-hover:text-purple-300
+                    text-[var(--text)]
+                    group-hover:text-[var(--accent)]
                     transition-colors
                     duration-300
                   "
@@ -388,9 +332,10 @@ function Skills() {
                   {category.title}
                 </h3>
 
+
                 <p
                   className="
-                    text-gray-500
+                    text-[var(--text-secondary)]
                     text-sm
                     sm:text-base
                     mt-2
@@ -419,41 +364,39 @@ function Skills() {
                   <motion.div
                     key={skill.name}
                     whileHover={{
-                      y: -4,
+                      y: -3,
                     }}
                     className="
                       group/skill
                       min-h-[105px]
                       sm:min-h-[120px]
-                      rounded-xl
-                      sm:rounded-2xl
+                      rounded-lg
+                      sm:rounded-xl
                       p-4
                       flex
                       flex-col
                       items-center
                       justify-center
                       text-center
-                      bg-purple-500/5
+                      bg-[var(--accent-soft)]
                       border
-                      border-purple-500/20
-                      hover:bg-purple-500/10
-                      hover:border-purple-400/50
+                      border-[var(--border)]
+                      hover:border-[var(--accent-border)]
+                      hover:bg-[var(--bg-secondary)]
                       transition-all
                       duration-300
                     "
                   >
 
-                    {/* Icon */}
+                    {/* ================= Icon ================= */}
 
                     <div
                       className="
                         text-3xl
                         sm:text-4xl
-                        text-purple-400
-                        group-hover/skill:text-fuchsia-400
-                        group-hover/skill:scale-110
-                        drop-shadow-[0_0_10px_rgba(168,85,247,0.25)]
-                        transition-all
+                        text-[var(--accent)]
+                        group-hover/skill:scale-105
+                        transition-transform
                         duration-300
                       "
                     >
@@ -461,7 +404,7 @@ function Skills() {
                     </div>
 
 
-                    {/* Name */}
+                    {/* ================= Name ================= */}
 
                     <h4
                       className="
@@ -470,8 +413,8 @@ function Skills() {
                         sm:text-sm
                         md:text-base
                         font-semibold
-                        text-gray-300
-                        group-hover/skill:text-purple-300
+                        text-[var(--text-secondary)]
+                        group-hover/skill:text-[var(--accent)]
                         transition-colors
                         duration-300
                       "
@@ -499,7 +442,7 @@ function Skills() {
         <motion.div
           initial={{
             opacity: 0,
-            y: 30,
+            y: 20,
           }}
           whileInView={{
             opacity: 1,
@@ -513,34 +456,40 @@ function Skills() {
           }}
           className="
             mt-6
-            rounded-2xl
-            sm:rounded-3xl
+            rounded-xl
+            sm:rounded-2xl
             p-5
             sm:p-6
             text-center
-            bg-gradient-to-r
-            from-purple-950/50
-            via-fuchsia-950/30
-            to-violet-950/50
+            bg-[var(--bg-card)]
             border
-            border-purple-500/20
+            border-[var(--accent-border)]
           "
         >
 
           <p
             className="
-              text-gray-400
+              text-[var(--text-secondary)]
               text-sm
               sm:text-base
             "
           >
-            <span className="text-purple-300 font-semibold">
+
+            <span
+              className="
+                text-[var(--accent)]
+                font-semibold
+              "
+            >
               Full Stack Development
-            </span>{" "}
-            •
-            <span className="text-gray-300">
-              {" "}Java + Spring Boot + React + MySQL
             </span>
+
+            {" • "}
+
+            <span className="text-[var(--text)]">
+              Java + Spring Boot + React + MySQL
+            </span>
+
           </p>
 
         </motion.div>

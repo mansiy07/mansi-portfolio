@@ -2,6 +2,7 @@
 // File Name   : Contact.jsx
 // Purpose     : Contact Section
 // Author      : Mansi Yadav
+// Description : Clean professional contact section
 // =====================================================
 
 import { useState } from "react";
@@ -15,6 +16,7 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 
+
 // =====================================================
 // EmailJS Configuration
 // =====================================================
@@ -25,11 +27,13 @@ const TEMPLATE_ID = "template_498sq7e";
 
 const PUBLIC_KEY = "Xm2vjOjzXR-yOJ3jd";
 
+
 // =====================================================
 // Contact Component
 // =====================================================
 
 function Contact() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,37 +41,56 @@ function Contact() {
   });
 
   const [sending, setSending] = useState(false);
+
   const [status, setStatus] = useState("");
 
-  // ===================================================
+
+  // =====================================================
   // Handle Input Change
-  // ===================================================
+  // =====================================================
 
   const handleChange = (e) => {
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
   };
 
-  // ===================================================
+
+  // =====================================================
   // Handle Form Submit
-  // ===================================================
+  // =====================================================
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
-    // Validation
-    if (!formData.name || !formData.email || !formData.message) {
+
+    // ================= Validation =================
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.message
+    ) {
+
       setStatus("Please fill all the fields.");
+
       return;
     }
 
+
     setSending(true);
+
     setStatus("");
 
+
     try {
-      // Send email through EmailJS
+
+      // ================= Send Email =================
+
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
@@ -76,7 +99,6 @@ function Contact() {
           email: formData.email,
           message: formData.message,
 
-          // Alternative EmailJS variable names
           from_name: formData.name,
           from_email: formData.email,
           reply_to: formData.email,
@@ -84,78 +106,66 @@ function Contact() {
         PUBLIC_KEY
       );
 
-      // Success
+
+      // ================= Success =================
+
       setStatus(
         "Message sent successfully! Thank you for reaching out."
       );
 
-      // Clear form
+
+      // ================= Clear Form =================
+
       setFormData({
         name: "",
         email: "",
         message: "",
       });
+
     } catch (error) {
+
       console.error("EmailJS Error:", error);
 
       setStatus(
         "Failed to send message. Please try again."
       );
+
     } finally {
+
       setSending(false);
+
     }
   };
 
-  // ===================================================
+
+  // =====================================================
   // Return
-  // ===================================================
+  // =====================================================
 
   return (
+
     <section
       id="contact"
       className="
         relative
         min-h-screen
-        bg-[#080014]
-        text-white
+        w-full
+        bg-[var(--bg)]
+        text-[var(--text)]
         flex
         items-center
-        py-24
-        overflow-hidden
+        pt-28
+        pb-20
+        sm:pt-32
+        sm:pb-24
+        transition-colors
+        duration-300
       "
     >
 
-      {/* ================= Background Glow ================= */}
-
-      <div
-        className="
-          absolute
-          top-20
-          left-1/4
-          w-[400px]
-          h-[400px]
-          bg-purple-700/10
-          rounded-full
-          blur-[130px]
-          pointer-events-none
-        "
-      ></div>
-
-      <div
-        className="
-          absolute
-          right-10
-          bottom-10
-          w-[400px]
-          h-[400px]
-          bg-fuchsia-700/10
-          rounded-full
-          blur-[130px]
-          pointer-events-none
-        "
-      ></div>
-
-      {/* ================= Main Container ================= */}
+      {/* =================================================
+          MAIN CONTAINER
+      ================================================= */}
 
       <div
         className="
@@ -164,89 +174,176 @@ function Contact() {
           w-full
           max-w-7xl
           mx-auto
-          px-6
+          px-5
+          sm:px-6
           lg:px-12
         "
       >
 
-        {/* ================= Heading ================= */}
+        {/* =================================================
+            HEADING
+        ================================================= */}
 
-        <motion.h2
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="
-            text-4xl
-            md:text-5xl
-            lg:text-6xl
-            font-bold
-            text-center
-          "
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: -25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="text-center"
         >
-          Get In <span className="text-purple-400">Touch</span>
-        </motion.h2>
 
-        {/* ================= Subtitle ================= */}
+          <p
+            className="
+              text-[var(--accent)]
+              text-xs
+              sm:text-sm
+              uppercase
+              tracking-[0.25em]
+              font-semibold
+              mb-3
+            "
+          >
+            Let's Connect
+          </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="
-            text-center
-            text-gray-400
-            text-lg
-            max-w-2xl
-            mx-auto
-            mt-5
-          "
-        >
-          I'm always open to discussing software development,
-          projects, internships and new opportunities.
-        </motion.p>
 
-        {/* ================= Contact Grid ================= */}
+          <h2
+            className="
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              font-bold
+              leading-tight
+              text-[var(--text)]
+            "
+          >
+            Get In Touch
+          </h2>
+
+
+          {/* ================= Accent Line ================= */}
+
+          <div
+            className="
+              w-14
+              h-[3px]
+              mx-auto
+              mt-5
+              rounded-full
+              bg-[var(--accent)]
+            "
+          />
+
+
+          <p
+            className="
+              text-[var(--text-secondary)]
+              text-sm
+              sm:text-base
+              md:text-lg
+              max-w-2xl
+              mx-auto
+              mt-5
+              leading-7
+              sm:leading-8
+            "
+          >
+            I'm always open to discussing software development,
+            projects, internships and new opportunities.
+          </p>
+
+        </motion.div>
+
+
+        {/* =================================================
+            CONTACT GRID
+        ================================================= */}
 
         <div
           className="
             grid
+            grid-cols-1
             lg:grid-cols-2
-            gap-8
-            mt-14
+            gap-6
+            lg:gap-8
+            mt-10
+            sm:mt-14
           "
         >
 
-          {/* ================= Contact Information ================= */}
+          {/* =================================================
+              CONTACT INFORMATION
+          ================================================= */}
 
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              x: -30,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            viewport={{
+              once: true,
+            }}
             className="
-              bg-purple-950/20
+              bg-[var(--bg-card)]
               border
-              border-purple-500/20
-              rounded-3xl
-              p-8
+              border-[var(--border)]
+              rounded-xl
+              sm:rounded-2xl
+              p-6
+              sm:p-8
               md:p-10
-              shadow-[0_0_30px_rgba(168,85,247,0.08)]
+              hover:border-[var(--accent-border)]
+              transition-all
+              duration-300
             "
           >
 
-            <h3 className="text-2xl font-bold text-white">
+            <h3
+              className="
+                text-2xl
+                font-bold
+                text-[var(--text)]
+              "
+            >
               Let's Connect
             </h3>
 
-            <p className="text-gray-400 mt-3 leading-7">
+
+            <p
+              className="
+                text-[var(--text-secondary)]
+                mt-3
+                leading-7
+                text-sm
+                sm:text-base
+              "
+            >
               Feel free to reach out to me for collaboration,
               internships, projects or any software development
               opportunities.
             </p>
 
-            {/* ================= Email ================= */}
+
+            {/* =================================================
+                EMAIL
+            ================================================= */}
 
             <a
               href="mailto:mansiyadav2807@gmail.com"
@@ -261,19 +358,24 @@ function Contact() {
 
               <div
                 className="
-                  w-14
-                  h-14
-                  rounded-xl
+                  w-12
+                  h-12
+                  sm:w-14
+                  sm:h-14
+                  shrink-0
+                  rounded-lg
+                  sm:rounded-xl
                   flex
                   items-center
                   justify-center
                   border
-                  border-purple-500/30
-                  bg-purple-500/10
-                  text-purple-400
-                  text-xl
-                  group-hover:bg-purple-500/20
-                  group-hover:border-purple-400
+                  border-[var(--accent-border)]
+                  bg-[var(--accent-soft)]
+                  text-[var(--accent)]
+                  text-lg
+                  sm:text-xl
+                  group-hover:bg-[var(--accent)]
+                  group-hover:text-[#111111]
                   transition-all
                   duration-300
                 "
@@ -281,43 +383,76 @@ function Contact() {
                 <FaEnvelope />
               </div>
 
+
               <div>
-                <p className="text-sm text-gray-500">
+
+                <p
+                  className="
+                    text-xs
+                    sm:text-sm
+                    text-[var(--text-muted)]
+                  "
+                >
                   Email
                 </p>
 
-                <p className="text-gray-200 group-hover:text-purple-400 transition-colors">
+                <p
+                  className="
+                    text-sm
+                    sm:text-base
+                    text-[var(--text)]
+                    group-hover:text-[var(--accent)]
+                    transition-colors
+                  "
+                >
                   mansiyadav2807@gmail.com
                 </p>
+
               </div>
 
             </a>
 
-            {/* ================= Social Links ================= */}
 
-            <div className="flex items-center gap-4 mt-8">
+            {/* =================================================
+                SOCIAL LINKS
+            ================================================= */}
 
-              {/* GitHub */}
+            <div
+              className="
+                flex
+                items-center
+                gap-3
+                sm:gap-4
+                mt-8
+              "
+            >
+
+              {/* ================= GitHub ================= */}
 
               <a
                 href="https://github.com/mansiy07"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                title="GitHub"
                 className="
-                  w-12
-                  h-12
-                  rounded-xl
+                  w-11
+                  h-11
+                  sm:w-12
+                  sm:h-12
+                  rounded-lg
+                  sm:rounded-xl
                   flex
                   items-center
                   justify-center
                   border
-                  border-purple-500/30
-                  text-gray-300
-                  text-xl
-                  hover:text-purple-400
-                  hover:border-purple-400
-                  hover:bg-purple-500/10
+                  border-[var(--border)]
+                  text-[var(--text-secondary)]
+                  text-lg
+                  sm:text-xl
+                  hover:text-[var(--accent)]
+                  hover:border-[var(--accent-border)]
+                  hover:bg-[var(--accent-soft)]
                   hover:-translate-y-1
                   transition-all
                   duration-300
@@ -326,27 +461,33 @@ function Contact() {
                 <FaGithub />
               </a>
 
-              {/* LinkedIn */}
+
+              {/* ================= LinkedIn ================= */}
 
               <a
                 href="https://www.linkedin.com/in/mansiy07"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                title="LinkedIn"
                 className="
-                  w-12
-                  h-12
-                  rounded-xl
+                  w-11
+                  h-11
+                  sm:w-12
+                  sm:h-12
+                  rounded-lg
+                  sm:rounded-xl
                   flex
                   items-center
                   justify-center
                   border
-                  border-purple-500/30
-                  text-gray-300
-                  text-xl
-                  hover:text-purple-400
-                  hover:border-purple-400
-                  hover:bg-purple-500/10
+                  border-[var(--border)]
+                  text-[var(--text-secondary)]
+                  text-lg
+                  sm:text-xl
+                  hover:text-[var(--accent)]
+                  hover:border-[var(--accent-border)]
+                  hover:bg-[var(--accent-soft)]
                   hover:-translate-y-1
                   transition-all
                   duration-300
@@ -359,37 +500,72 @@ function Contact() {
 
           </motion.div>
 
-          {/* ================= Contact Form ================= */}
+
+          {/* =================================================
+              CONTACT FORM
+          ================================================= */}
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              x: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            viewport={{
+              once: true,
+            }}
             className="
-              bg-purple-950/20
+              bg-[var(--bg-card)]
               border
-              border-purple-500/20
-              rounded-3xl
-              p-8
+              border-[var(--border)]
+              rounded-xl
+              sm:rounded-2xl
+              p-6
+              sm:p-8
               md:p-10
-              shadow-[0_0_30px_rgba(168,85,247,0.08)]
+              hover:border-[var(--accent-border)]
+              transition-all
+              duration-300
             "
           >
 
-            <h3 className="text-2xl font-bold text-white">
+            <h3
+              className="
+                text-2xl
+                font-bold
+                text-[var(--text)]
+              "
+            >
               Send Me a Message
             </h3>
 
+
             <form onSubmit={handleSubmit}>
 
-              {/* ================= Name ================= */}
+
+              {/* =================================================
+                  NAME
+              ================================================= */}
 
               <div className="mt-6">
 
-                <label className="block text-sm text-gray-400 mb-2">
+                <label
+                  className="
+                    block
+                    text-sm
+                    text-[var(--text-secondary)]
+                    mb-2
+                  "
+                >
                   Name
                 </label>
+
 
                 <input
                   type="text"
@@ -400,29 +576,41 @@ function Contact() {
                   required
                   className="
                     w-full
-                    bg-[#080014]
+                    bg-[var(--bg)]
                     border
-                    border-purple-500/20
-                    rounded-xl
+                    border-[var(--border)]
+                    rounded-lg
                     px-4
                     py-3
-                    text-white
-                    placeholder-gray-600
+                    text-[var(--text)]
+                    placeholder:text-[var(--text-muted)]
                     outline-none
-                    focus:border-purple-500
+                    focus:border-[var(--accent)]
                     transition-all
+                    duration-300
                   "
                 />
 
               </div>
 
-              {/* ================= Email ================= */}
+
+              {/* =================================================
+                  EMAIL
+              ================================================= */}
 
               <div className="mt-5">
 
-                <label className="block text-sm text-gray-400 mb-2">
+                <label
+                  className="
+                    block
+                    text-sm
+                    text-[var(--text-secondary)]
+                    mb-2
+                  "
+                >
                   Email
                 </label>
+
 
                 <input
                   type="email"
@@ -433,29 +621,41 @@ function Contact() {
                   required
                   className="
                     w-full
-                    bg-[#080014]
+                    bg-[var(--bg)]
                     border
-                    border-purple-500/20
-                    rounded-xl
+                    border-[var(--border)]
+                    rounded-lg
                     px-4
                     py-3
-                    text-white
-                    placeholder-gray-600
+                    text-[var(--text)]
+                    placeholder:text-[var(--text-muted)]
                     outline-none
-                    focus:border-purple-500
+                    focus:border-[var(--accent)]
                     transition-all
+                    duration-300
                   "
                 />
 
               </div>
 
-              {/* ================= Message ================= */}
+
+              {/* =================================================
+                  MESSAGE
+              ================================================= */}
 
               <div className="mt-5">
 
-                <label className="block text-sm text-gray-400 mb-2">
+                <label
+                  className="
+                    block
+                    text-sm
+                    text-[var(--text-secondary)]
+                    mb-2
+                  "
+                >
                   Message
                 </label>
+
 
                 <textarea
                   name="message"
@@ -466,24 +666,28 @@ function Contact() {
                   required
                   className="
                     w-full
-                    bg-[#080014]
+                    bg-[var(--bg)]
                     border
-                    border-purple-500/20
-                    rounded-xl
+                    border-[var(--border)]
+                    rounded-lg
                     px-4
                     py-3
-                    text-white
-                    placeholder-gray-600
+                    text-[var(--text)]
+                    placeholder:text-[var(--text-muted)]
                     outline-none
                     resize-none
-                    focus:border-purple-500
+                    focus:border-[var(--accent)]
                     transition-all
+                    duration-300
                   "
-                ></textarea>
+                />
 
               </div>
 
-              {/* ================= Send Button ================= */}
+
+              {/* =================================================
+                  SEND BUTTON
+              ================================================= */}
 
               <button
                 type="submit"
@@ -495,43 +699,54 @@ function Contact() {
                   justify-center
                   gap-3
                   mt-6
-                  bg-gradient-to-r
-                  from-purple-600
-                  to-fuchsia-600
-                  text-white
+                  bg-[var(--accent)]
+                  text-[#111111]
                   font-semibold
                   py-3.5
-                  rounded-xl
-                  shadow-[0_0_25px_rgba(168,85,247,0.25)]
-                  hover:from-purple-500
-                  hover:to-fuchsia-500
-                  hover:shadow-[0_0_35px_rgba(168,85,247,0.4)]
-                  hover:scale-[1.01]
+                  rounded-lg
+                  border
+                  border-[var(--accent)]
+                  hover:bg-[var(--accent-hover)]
+                  hover:border-[var(--accent-hover)]
+                  hover:-translate-y-0.5
                   transition-all
                   duration-300
                   disabled:opacity-60
                   disabled:cursor-not-allowed
+                  disabled:hover:translate-y-0
                 "
               >
 
                 <FaPaperPlane />
 
-                {sending ? "Sending..." : "Send Message"}
+                {sending
+                  ? "Sending..."
+                  : "Send Message"}
 
               </button>
 
-              {/* ================= Status ================= */}
+
+              {/* =================================================
+                  STATUS MESSAGE
+              ================================================= */}
 
               {status && (
+
                 <p
-                  className={`text-center text-sm mt-4 ${
-                    status.includes("successfully")
-                      ? "text-green-400"
-                      : "text-red-400"
-                  }`}
+                  className={`
+                    text-center
+                    text-sm
+                    mt-4
+                    ${
+                      status.includes("successfully")
+                        ? "text-green-500"
+                        : "text-red-500"
+                    }
+                  `}
                 >
                   {status}
                 </p>
+
               )}
 
             </form>
@@ -545,6 +760,7 @@ function Contact() {
     </section>
   );
 }
+
 
 // =====================================================
 // Export Component

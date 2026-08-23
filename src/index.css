@@ -1,200 +1,238 @@
 @import "tailwindcss";
 
+
 /* =====================================================
    GLOBAL
+   Theme: Black Dark / Peach-Golden Light
+   Author: Mansi Yadav
+===================================================== */
+
+
+/* =====================================================
+   DARK MODE — DEFAULT
 ===================================================== */
 
 html {
   scroll-behavior: smooth;
-  background: #10051c;
+
+  background: #000000;
+
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #e8a66f #000000;
 }
 
-body {
-  background:
-    radial-gradient(
-      circle at 65% 25%,
-      rgba(176, 38, 217, 0.20),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 35% 70%,
-      rgba(139, 47, 201, 0.12),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #10051c 0%,
-      #12051f 45%,
-      #0b0314 100%
-    );
 
-  color: #ffffff;
+body {
+  background: #000000;
+
+  color: #f5f5f5;
+
   font-family: Inter, sans-serif;
 
   overflow-x: hidden;
 }
 
-/* IMPORTANT:
+
+/* =====================================================
+   LIGHT MODE
+===================================================== */
+
+html.light {
+  background: #fffaf5;
+
+  /* Firefox scrollbar */
+  scrollbar-color: #c9894b #fffaf5;
+}
+
+
+html.light body {
+  background: #fffaf5;
+
+  color: #222222;
+}
+
+
+/* =====================================================
+   IMPORTANT
    Tailwind utilities such as mx-auto and px-8
    must NOT be overridden by a global reset.
-*/
+===================================================== */
 
 * {
   box-sizing: border-box;
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
 
 /* =====================================================
-   PURPLE THEME
+   ROOT
+===================================================== */
+
+#root {
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+}
+
+
+/* =====================================================
+   THEME VARIABLES
 ===================================================== */
 
 :root {
-  --purple: #8b2fc9;
-  --purple-light: #b026d9;
-  --purple-bright: #c43ee8;
-  --purple-soft: #c084fc;
+  --background: #000000;
 
-  --background: #10051c;
-  --card: rgba(31, 14, 45, 0.72);
+  --card: #111111;
 
-  --border: rgba(176, 38, 217, 0.38);
+  --border-theme: rgba(255, 255, 255, 0.12);
 
-  --text: #f8f5fa;
-  --muted: #a99aaf;
+  --text-theme: #f5f5f5;
+
+  --muted-theme: #b8b8b8;
+
+  --accent-theme: #e8a66f;
+
+  --accent-hover-theme: #f0b47f;
 }
 
-/* =====================================================
-   TECH GRID BACKGROUND
-===================================================== */
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+html.light {
+  --background: #fffaf5;
 
-  background-image:
-    linear-gradient(
-      rgba(176, 38, 217, 0.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(176, 38, 217, 0.035) 1px,
-      transparent 1px
-    );
+  --card: #ffffff;
 
-  background-size: 55px 55px;
+  --border-theme: rgba(60, 45, 35, 0.12);
 
-  pointer-events: none;
-  z-index: -1;
+  --text-theme: #222222;
+
+  --muted-theme: #5f5f5f;
+
+  --accent-theme: #c9894b;
+
+  --accent-hover-theme: #b87538;
 }
 
+
 /* =====================================================
-   SECTIONS
+   SECTION BACKGROUND
 ===================================================== */
 
 section {
   position: relative;
+
   width: 100%;
+
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 70% 35%,
-      rgba(176, 38, 217, 0.08),
-      transparent 32%
-    ),
-    transparent;
+  background: transparent;
 }
+
+
+/* =====================================================
+   REMOVE OLD PURPLE / CYAN OVERRIDES
+===================================================== */
+
+/*
+   Purple/cyan Tailwind overrides intentionally removed.
+
+   The portfolio now uses:
+   Dark Mode  -> Black + Peach
+   Light Mode -> Cream + Golden Peach
+*/
+
 
 /* =====================================================
    TEXT COLORS
 ===================================================== */
 
-.text-cyan-300,
-.text-cyan-400,
-.text-cyan-500,
-.text-blue-400,
-.text-blue-500 {
-  color: var(--purple-soft) !important;
+.text-gray-300 {
+  color: var(--text-theme) !important;
 }
 
-.text-gray-300 {
-  color: #d5cbd9 !important;
-}
 
 .text-gray-400 {
-  color: var(--muted) !important;
+  color: var(--muted-theme) !important;
 }
 
+
 .text-white {
-  color: var(--text) !important;
+  color: var(--text-theme) !important;
 }
+
 
 /* =====================================================
    BACKGROUND COLORS
 ===================================================== */
 
 .bg-slate-950 {
-  background: transparent !important;
+  background: var(--background) !important;
 }
 
+
 .bg-slate-900 {
-  background: rgba(11, 3, 20, 0.82) !important;
+  background: var(--background) !important;
 }
+
 
 .bg-slate-800 {
   background: var(--card) !important;
 }
 
+
 /* =====================================================
-   CYAN -> PURPLE
+   OLD CYAN / BLUE CLASSES
+   Convert them to Peach instead of Purple
 ===================================================== */
 
 .bg-cyan-400,
 .bg-cyan-500,
 .bg-blue-400,
 .bg-blue-500 {
-  background-color: var(--purple) !important;
+  background-color: var(--accent-theme) !important;
 }
+
 
 .text-cyan-300,
 .text-cyan-400,
 .text-cyan-500,
 .text-blue-400,
 .text-blue-500 {
-  color: var(--purple-soft) !important;
+  color: var(--accent-theme) !important;
 }
+
 
 .border-cyan-400,
 .border-cyan-500,
 .border-blue-400,
 .border-blue-500 {
-  border-color: var(--purple) !important;
+  border-color: var(--accent-theme) !important;
 }
 
+
 /* =====================================================
-   HOVER
+   HOVER COLORS
 ===================================================== */
 
 .hover\:text-cyan-400:hover,
 .hover\:text-blue-500:hover {
-  color: var(--purple-bright) !important;
+  color: var(--accent-hover-theme) !important;
 }
+
 
 .hover\:bg-cyan-400:hover,
 .hover\:bg-cyan-500:hover {
-  background-color: var(--purple-light) !important;
+  background-color: var(--accent-theme) !important;
 }
 
+
 .hover\:border-cyan-400:hover {
-  border-color: var(--purple-bright) !important;
+  border-color: var(--accent-hover-theme) !important;
 }
+
 
 /* =====================================================
    CARD BORDERS
@@ -202,54 +240,67 @@ section {
 
 .border-slate-700,
 .border-slate-600 {
-  border-color: var(--border) !important;
+  border-color: var(--border-theme) !important;
 }
+
 
 /* =====================================================
    GRADIENT TEXT
 ===================================================== */
 
 .from-cyan-400 {
-  --tw-gradient-from: #b026d9 var(--tw-gradient-from-position) !important;
+  --tw-gradient-from:
+    var(--accent-theme)
+    var(--tw-gradient-from-position) !important;
 }
+
 
 .via-blue-400 {
   --tw-gradient-stops:
     var(--tw-gradient-from),
-    #c084fc var(--tw-gradient-via-position),
+    var(--accent-theme)
+    var(--tw-gradient-via-position),
     var(--tw-gradient-to) !important;
 }
 
+
 .to-purple-500 {
-  --tw-gradient-to: #d05ce3 var(--tw-gradient-to-position) !important;
+  --tw-gradient-to:
+    var(--accent-hover-theme)
+    var(--tw-gradient-to-position) !important;
 }
 
+
 /* =====================================================
-   PURPLE GLOW
+   OLD PURPLE GLOW
+   Replaced with subtle Peach
 ===================================================== */
 
 [class*="shadow-[0_0_70px"] {
   box-shadow:
-    0 0 45px rgba(176, 38, 217, 0.45),
-    0 0 100px rgba(139, 47, 201, 0.25) !important;
+    0 0 45px rgba(232, 166, 111, 0.20),
+    0 0 80px rgba(232, 166, 111, 0.08) !important;
 }
+
 
 [class*="shadow-[0_0_25px"] {
   box-shadow:
-    0 0 25px rgba(176, 38, 217, 0.35) !important;
+    0 0 25px rgba(232, 166, 111, 0.18) !important;
 }
+
 
 /* =====================================================
    CARDS
 ===================================================== */
 
 .bg-slate-800:hover {
-  border-color: rgba(192, 132, 252, 0.55) !important;
+  border-color: var(--accent-theme) !important;
 
   box-shadow:
-    0 0 25px rgba(176, 38, 217, 0.18),
-    inset 0 0 20px rgba(176, 38, 217, 0.03);
+    0 0 25px rgba(232, 166, 111, 0.10),
+    inset 0 0 20px rgba(232, 166, 111, 0.02);
 }
+
 
 /* =====================================================
    LINKS / BUTTONS
@@ -260,62 +311,125 @@ button {
   transition: all 0.3s ease;
 }
 
+
 .bg-cyan-500 {
+  background-color: var(--accent-theme) !important;
+
   box-shadow:
-    0 0 20px rgba(176, 38, 217, 0.3);
+    0 0 20px rgba(232, 166, 111, 0.18);
 }
 
+
 .bg-cyan-500:hover {
+  background-color: var(--accent-hover-theme) !important;
+
   box-shadow:
-    0 0 30px rgba(208, 92, 227, 0.45);
+    0 0 30px rgba(232, 166, 111, 0.25);
 }
+
 
 /* =====================================================
    SCROLLBAR
+   IMPORTANT: NO PURPLE
 ===================================================== */
+
+/* Chrome / Edge / Brave */
 
 ::-webkit-scrollbar {
   width: 8px;
+
+  height: 8px;
 }
+
 
 ::-webkit-scrollbar-track {
-  background: #0b0314;
+  background: #000000 !important;
 }
+
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    #8b2fc9,
-    #d05ce3
-  );
+  background: #e8a66f !important;
 
   border-radius: 10px;
+
+  border: none !important;
+
+  box-shadow: none !important;
 }
 
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #c084fc;
+  background: #f0b47f !important;
 }
+
+
+/* =====================================================
+   LIGHT MODE SCROLLBAR
+===================================================== */
+
+html.light::-webkit-scrollbar-track {
+  background: #fffaf5 !important;
+}
+
+
+html.light::-webkit-scrollbar-thumb {
+  background: #c9894b !important;
+
+  border-radius: 10px;
+
+  border: none !important;
+}
+
+
+html.light::-webkit-scrollbar-thumb:hover {
+  background: #b87538 !important;
+}
+
 
 /* =====================================================
    SELECTION
 ===================================================== */
 
 ::selection {
-  background: rgba(176, 38, 217, 0.4);
-  color: white;
+  background: var(--accent-theme);
+
+  color: #111111;
 }
+
 
 /* =====================================================
    RESPONSIVE
 ===================================================== */
 
 @media (max-width: 768px) {
+
   body {
-    background:
-      radial-gradient(
-        circle at 50% 20%,
-        rgba(176, 38, 217, 0.18),
-        transparent 35%
-      ),
-      #10051c;
+    background: var(--background);
   }
+
+  html.light body {
+    background: #fffaf5;
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+  }
+
 }
