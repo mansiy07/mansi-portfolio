@@ -1,6 +1,6 @@
 # Mansi Yadav – Portfolio
 
-🌐 **[View My Live Portfolio](https://mansi-portfolio-seven.vercel.app/)**
+🌐 **[View My Live Portfolio](https://mansi-yadav.vercel.app/)**
 
 ---
 
