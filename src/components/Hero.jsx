@@ -8,7 +8,6 @@
 // ================= Imports =================
 
 import Profile from "../assets/profile.png";
-import resume from "../assets/resume.pdf";
 
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -21,14 +20,12 @@ import {
   FaCode,
 } from "react-icons/fa";
 
-
 // =====================================================
 // Hero Component
 // =====================================================
 
 function Hero() {
   return (
-
     // =================================================
     // Hero Section
     // =================================================
@@ -112,7 +109,6 @@ function Hero() {
             Hello, I'm
           </p>
 
-
           {/* ================= Name ================= */}
 
           <h1
@@ -130,7 +126,6 @@ function Hero() {
             Mansi Yadav
           </h1>
 
-
           {/* ================= Accent Line ================= */}
 
           <div
@@ -146,7 +141,6 @@ function Hero() {
             "
           />
 
-
           {/* ================= Typing Animation ================= */}
 
           <div
@@ -155,21 +149,16 @@ function Hero() {
               sm:min-h-[44px]
             "
           >
-
             <TypeAnimation
               sequence={[
                 "Full Stack Developer",
                 2000,
-
                 "Java Developer",
                 2000,
-
                 "Backend Developer",
                 2000,
-
                 "Software Developer",
                 2000,
-
                 "Problem Solver",
                 2000,
               ]}
@@ -186,9 +175,7 @@ function Hero() {
                 leading-relaxed
               "
             />
-
           </div>
-
 
           {/* ================= Main Description ================= */}
 
@@ -225,7 +212,6 @@ function Hero() {
             </span>
           </p>
 
-
           {/* ================= Second Description ================= */}
 
           <p
@@ -244,7 +230,6 @@ function Hero() {
             and continuously improving my software development skills
             through coding and practical learning.
           </p>
-
 
           {/* =================================================
               Action Buttons
@@ -291,15 +276,14 @@ function Hero() {
               View Projects
 
               <FaArrowRight className="text-sm" />
-
             </a>
-
 
             {/* ================= Resume ================= */}
 
             <a
-              href={resume}
-              download="Mansi_Yadav_Resume.pdf"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 inline-flex
                 items-center
@@ -320,15 +304,12 @@ function Hero() {
                 sm:w-auto
               "
             >
-
               <FaDownload />
 
               Resume
-
             </a>
 
           </div>
-
 
           {/* =================================================
               Social Media Icons
@@ -374,7 +355,6 @@ function Hero() {
               <FaGithub />
             </a>
 
-
             {/* ================= LinkedIn ================= */}
 
             <a
@@ -403,7 +383,6 @@ function Hero() {
             >
               <FaLinkedin />
             </a>
-
 
             {/* ================= Codolio ================= */}
 
@@ -437,7 +416,6 @@ function Hero() {
           </div>
 
         </motion.div>
-
 
         {/* =================================================
             RIGHT SIDE - PROFILE IMAGE
@@ -495,7 +473,6 @@ function Hero() {
               "
             />
 
-
             {/* ================= Profile Image ================= */}
 
             <img
@@ -533,7 +510,6 @@ function Hero() {
     </section>
   );
 }
-
 
 // =====================================================
 // Export Component
