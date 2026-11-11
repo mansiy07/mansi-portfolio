@@ -1,9 +1,3 @@
-// =====================================================
-// File Name   : Projects.jsx
-// Purpose     : Projects Section
-// Author      : Mansi Yadav
-// Description : Clean and professional project showcase
-// =====================================================
 
 import { motion } from "framer-motion";
 
@@ -16,110 +10,74 @@ import {
   FaReact,
 } from "react-icons/fa";
 
-
-// =====================================================
-// Projects Component
-// =====================================================
-
 function Projects() {
-
-  // =====================================================
-  // Projects Data
-  // =====================================================
-
   const projects = [
     {
-      title: "SehatAI",
+      title: "MediMind",
+      subtitle: "Smart Rural Healthcare Assistant",
 
       description:
-        "A full-stack healthcare platform designed to provide accessible digital health support through a modern frontend and a Java-based backend.",
+        "Addressed limited access to reliable healthcare information and guidance in rural communities. Implemented healthcare assistance features and connected frontend services with backend APIs. Created a centralized platform to make essential healthcare information more accessible to users.",
 
       technologies: [
-        {
-          name: "React",
-          icon: <FaReact />,
-        },
-        {
-          name: "Spring Boot",
-          icon: <FaServer />,
-        },
-        {
-          name: "Java",
-          icon: <FaJava />,
-        },
-        {
-          name: "MySQL",
-          icon: <FaDatabase />,
-        },
-        {
-          name: "REST APIs",
-          icon: <FaCode />,
-        },
+        { name: "React.js", icon: <FaReact /> },
+        { name: "Vite", icon: <FaCode /> },
+        { name: "Java", icon: <FaJava /> },
+        { name: "Spring Boot", icon: <FaServer /> },
+        { name: "Spring Security", icon: <FaServer /> },
+        { name: "MySQL", icon: <FaDatabase /> },
+        { name: "REST APIs", icon: <FaCode /> },
+        { name: "JWT", icon: <FaCode /> },
       ],
 
-      github: "https://github.com/mansiy07/SehatAI",
+      github: "https://github.com/mansiy07/MediMind",
     },
 
-
     {
-      title: "Web Scientific Calculator",
+      title: "FraudLensAI",
+      subtitle: "Payment Risk & Fraud Intelligence Platform",
 
       description:
-        "A web-based scientific calculator built using Java, JSP and Servlets with support for mathematical operations, error handling and calculation history.",
+        "Addressed the challenge of detecting suspicious payment activity and identifying potential fraud. Implemented transaction monitoring, risk scoring, authentication, dynamic alerts, and audit logging. Delivered an interactive dashboard for tracking transactions and highlighting potential security risks.",
 
       technologies: [
-        {
-          name: "Java",
-          icon: <FaJava />,
-        },
-        {
-          name: "JSP",
-          icon: <FaCode />,
-        },
-        {
-          name: "Servlets",
-          icon: <FaServer />,
-        },
-        {
-          name: "HTML",
-          icon: <FaCode />,
-        },
+        { name: "React", icon: <FaReact /> },
+        { name: "Vite", icon: <FaCode /> },
+        { name: "Node.js", icon: <FaServer /> },
+        { name: "Express.js", icon: <FaServer /> },
+        { name: "MongoDB", icon: <FaDatabase /> },
+        { name: "Mongoose", icon: <FaDatabase /> },
+        { name: "JWT", icon: <FaCode /> },
+        { name: "bcryptjs", icon: <FaCode /> },
       ],
 
-      github:
-        "https://github.com/mansiy07/Web-Scientific-Calculator-Project",
+      github: "https://github.com/mansiy07/FraudLensAI",
     },
 
-
     {
-      title: "Smart ChatBot",
+      title: "TourX",
+      subtitle: "Blockchain-Based Smart Tourist Safety",
 
       description:
-        "A Core Java chatbot application that handles greetings, date, time and basic user queries while demonstrating object-oriented programming concepts.",
+        "Focused on enhancing tourist safety through AI-powered monitoring and blockchain-based data integrity. Developing geofencing, live location monitoring, emergency SOS alerts, and AI-based anomaly detection. Uses blockchain verification records to maintain the integrity and traceability of important safety events, while sensitive data remains securely stored off-chain.",
 
       technologies: [
-        {
-          name: "Java",
-          icon: <FaJava />,
-        },
-        {
-          name: "OOP",
-          icon: <FaCode />,
-        },
+        { name: "React.js", icon: <FaReact /> },
+        { name: "Vite", icon: <FaCode /> },
+        { name: "Tailwind CSS", icon: <FaCode /> },
+        { name: "Spring Boot", icon: <FaServer /> },
+        { name: "PostgreSQL", icon: <FaDatabase /> },
+        { name: "Blockchain", icon: <FaDatabase /> },
+        { name: "Python", icon: <FaCode /> },
+        { name: "FastAPI", icon: <FaServer /> },
+        { name: "OpenAI API", icon: <FaCode /> },
       ],
 
-      github:
-        "https://github.com/mansiy07/Smart-ChatBot-",
+      github: "https://github.com/mansiy07/TourX",
     },
   ];
 
-
-  // =====================================================
-  // Return
-  // =====================================================
-
   return (
-
     <section
       id="projects"
       className="
@@ -137,11 +95,7 @@ function Projects() {
         duration-300
       "
     >
-
-      {/* =================================================
-          MAIN CONTAINER
-      ================================================= */}
-
+      {/* Main Container */}
       <div
         className="
           relative
@@ -154,31 +108,14 @@ function Projects() {
           lg:px-12
         "
       >
-
-        {/* =================================================
-            HEADING
-        ================================================= */}
-
+        {/* Heading */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: -25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          viewport={{
-            once: true,
-          }}
+          initial={{ opacity: 0, y: -25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-center"
         >
-
-          {/* ================= Small Heading ================= */}
-
           <p
             className="
               text-[var(--accent)]
@@ -193,9 +130,6 @@ function Projects() {
             What I've Built
           </p>
 
-
-          {/* ================= Main Heading ================= */}
-
           <h2
             className="
               text-4xl
@@ -209,9 +143,6 @@ function Projects() {
             My Projects
           </h2>
 
-
-          {/* ================= Accent Line ================= */}
-
           <div
             className="
               w-14
@@ -222,9 +153,6 @@ function Projects() {
               bg-[var(--accent)]
             "
           />
-
-
-          {/* ================= Description ================= */}
 
           <p
             className="
@@ -241,17 +169,12 @@ function Projects() {
             "
           >
             A selection of projects where I have applied my
-            programming, full-stack development and problem-solving
-            skills.
+            programming, full-stack development and
+            problem-solving skills.
           </p>
-
         </motion.div>
 
-
-        {/* =================================================
-            PROJECT GRID
-        ================================================= */}
-
+        {/* Project Grid */}
         <div
           className="
             mt-10
@@ -264,36 +187,17 @@ function Projects() {
             lg:gap-6
           "
         >
-
           {projects.map((project, index) => (
-
             <motion.article
               key={project.title}
-
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-
-              viewport={{
-                once: true,
-                amount: 0.15,
-              }}
-
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{
                 duration: 0.5,
                 delay: index * 0.08,
               }}
-
-              whileHover={{
-                y: -5,
-              }}
-
+              whileHover={{ y: -5 }}
               className="
                 group
                 relative
@@ -312,21 +216,8 @@ function Projects() {
                 duration-300
               "
             >
-
-              {/* =================================================
-                  Project Number + GitHub
-              ================================================= */}
-
-              <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                "
-              >
-
-                {/* Project Number */}
-
+              {/* Project Number + GitHub */}
+              <div className="flex items-center justify-between">
                 <span
                   className="
                     text-[var(--accent)]
@@ -337,9 +228,6 @@ function Projects() {
                 >
                   PROJECT {String(index + 1).padStart(2, "0")}
                 </span>
-
-
-                {/* GitHub Icon */}
 
                 <a
                   href={project.github}
@@ -359,14 +247,9 @@ function Projects() {
                 >
                   <FaGithub />
                 </a>
-
               </div>
 
-
-              {/* =================================================
-                  Project Title
-              ================================================= */}
-
+              {/* Project Title */}
               <h3
                 className="
                   text-xl
@@ -382,11 +265,19 @@ function Projects() {
                 {project.title}
               </h3>
 
+              {/* Project Subtitle */}
+              <p
+                className="
+                  text-[var(--accent)]
+                  text-sm
+                  font-medium
+                  mt-2
+                "
+              >
+                {project.subtitle}
+              </p>
 
-              {/* =================================================
-                  Description
-              ================================================= */}
-
+              {/* Description */}
               <p
                 className="
                   text-[var(--text-secondary)]
@@ -399,11 +290,7 @@ function Projects() {
                 {project.description}
               </p>
 
-
-              {/* =================================================
-                  Technologies
-              ================================================= */}
-
+              {/* Technologies */}
               <div
                 className="
                   flex
@@ -412,9 +299,7 @@ function Projects() {
                   mt-6
                 "
               >
-
                 {project.technologies.map((technology) => (
-
                   <span
                     key={technology.name}
                     className="
@@ -436,26 +321,17 @@ function Projects() {
                       duration-300
                     "
                   >
-
                     <span className="text-[var(--accent)]">
                       {technology.icon}
                     </span>
 
                     {technology.name}
-
                   </span>
-
                 ))}
-
               </div>
 
-
-              {/* =================================================
-                  GitHub Button
-              ================================================= */}
-
+              {/* GitHub Button */}
               <div className="mt-auto pt-8">
-
                 <a
                   href={project.github}
                   target="_blank"
@@ -479,30 +355,16 @@ function Projects() {
                     duration-300
                   "
                 >
-
                   <FaGithub />
-
                   View on GitHub
-
                 </a>
-
               </div>
-
             </motion.article>
-
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }
-
-
-// =====================================================
-// Export Component
-// =====================================================
 
 export default Projects;

@@ -1,3 +1,4 @@
+
 // =====================================================
 // File Name   : Skills.jsx
 // Purpose     : Skills Section
@@ -13,6 +14,7 @@ import {
   FaReact,
   FaHtml5,
   FaCss3Alt,
+  FaCode,
 } from "react-icons/fa";
 
 import {
@@ -20,7 +22,6 @@ import {
   SiMysql,
   SiJavascript,
   SiPostman,
-  SiIntellijidea,
 } from "react-icons/si";
 
 
@@ -100,8 +101,12 @@ function Skills() {
           icon: <FaGitAlt />,
         },
         {
-          name: "IntelliJ IDEA",
-          icon: <SiIntellijidea />,
+          name: "VS Code",
+          icon: <FaCode />,
+        },
+        {
+          name: "Eclipse",
+          icon: <FaCode />,
         },
       ],
     },

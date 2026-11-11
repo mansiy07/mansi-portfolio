@@ -1,9 +1,3 @@
-// =====================================================
-// File Name   : Experience.jsx
-// Purpose     : Experience & Internship Section
-// Author      : Mansi Yadav
-// Description : Clean professional experience timeline
-// =====================================================
 
 import { motion } from "framer-motion";
 
@@ -14,23 +8,16 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 
-
-// =====================================================
-// Experience Component
-// =====================================================
-
 function Experience() {
-
-  // =====================================================
-  // Experience Data
-  // =====================================================
+  const linkedInUrl = "https://www.linkedin.com/in/mansiy07/";
 
   const experiences = [
     {
       type: "INTERNSHIP",
       title: "Data Analytics Intern",
       company: "Edunet Foundation",
-      program: "AICTE • VOIS for Tech Program",
+      program:
+        "AICTE • VODAFONE IDEA (VOIS) for Tech Program • EDUNET FOUNDATION",
       duration: "Aug 2026 – Sep 2026",
       icon: <FaBriefcase />,
 
@@ -56,13 +43,12 @@ function Experience() {
       badge: "AICTE Internship",
     },
 
-
     {
       type: "ACADEMIC INTERNSHIP",
       title: "Data Analytics with AI",
-      company: "IBM SkillsBuild • BharatCares",
-      program: "AICTE | IBM SkillsBuild",
-      duration: "Completed • 20 Aug 2026",
+      company: "IBM SkillsBuild • Bharat Careers",
+      program: "IBM SkillsBuild • AICTE • Bharat Careers",
+      duration: "Aug 2026 – Sep 2026",
       icon: <FaChartBar />,
 
       description:
@@ -89,13 +75,7 @@ function Experience() {
     },
   ];
 
-
-  // =====================================================
-  // Return
-  // =====================================================
-
   return (
-
     <section
       id="experience"
       className="
@@ -112,10 +92,7 @@ function Experience() {
         duration-300
       "
     >
-
-      {/* =================================================
-          MAIN CONTAINER
-      ================================================= */}
+      {/* MAIN CONTAINER */}
 
       <div
         className="
@@ -128,31 +105,15 @@ function Experience() {
           lg:px-12
         "
       >
-
-        {/* =================================================
-            SECTION HEADING
-        ================================================= */}
+        {/* SECTION HEADING */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: -25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          viewport={{
-            once: true,
-          }}
+          initial={{ opacity: 0, y: -25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-center"
         >
-
-          {/* ================= Small Heading ================= */}
-
           <p
             className="
               text-[var(--accent)]
@@ -167,9 +128,6 @@ function Experience() {
             My Journey
           </p>
 
-
-          {/* ================= Main Heading ================= */}
-
           <h2
             className="
               text-4xl
@@ -183,9 +141,6 @@ function Experience() {
             Experience & Learning
           </h2>
 
-
-          {/* ================= Accent Line ================= */}
-
           <div
             className="
               w-14
@@ -196,9 +151,6 @@ function Experience() {
               bg-[var(--accent)]
             "
           />
-
-
-          {/* ================= Description ================= */}
 
           <p
             className="
@@ -217,17 +169,12 @@ function Experience() {
             My internship experience, practical learning and journey
             toward becoming a skilled software developer.
           </p>
-
         </motion.div>
 
-
-        {/* =================================================
-            EXPERIENCE TIMELINE
-        ================================================= */}
+        {/* EXPERIENCE TIMELINE */}
 
         <div className="relative mt-12 sm:mt-16">
-
-          {/* ================= Timeline Line ================= */}
+          {/* Timeline Line */}
 
           <div
             className="
@@ -243,36 +190,19 @@ function Experience() {
             "
           />
 
-
-          {/* ================= Experience Cards ================= */}
+          {/* Experience Cards */}
 
           <div className="space-y-10 sm:space-y-12">
-
             {experiences.map((experience, index) => (
-
               <motion.div
                 key={experience.company}
-
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-
-                viewport={{
-                  once: true,
-                  amount: 0.15,
-                }}
-
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
                   duration: 0.55,
                   delay: index * 0.12,
                 }}
-
                 className={`
                   relative
                   flex
@@ -283,10 +213,7 @@ function Experience() {
                   }
                 `}
               >
-
-                {/* =================================================
-                    Timeline Dot
-                ================================================= */}
+                {/* Timeline Dot */}
 
                 <div
                   className="
@@ -306,10 +233,7 @@ function Experience() {
                   "
                 />
 
-
-                {/* =================================================
-                    Experience Card
-                ================================================= */}
+                {/* Experience Card */}
 
                 <div
                   className="
@@ -330,10 +254,7 @@ function Experience() {
                     duration-300
                   "
                 >
-
-                  {/* =================================================
-                      Header
-                  ================================================= */}
+                  {/* Header */}
 
                   <div
                     className="
@@ -343,8 +264,7 @@ function Experience() {
                       sm:gap-5
                     "
                   >
-
-                    {/* ================= Icon ================= */}
+                    {/* Icon */}
 
                     <div
                       className="
@@ -372,11 +292,9 @@ function Experience() {
                       {experience.icon}
                     </div>
 
-
-                    {/* ================= Title ================= */}
+                    {/* Title */}
 
                     <div className="flex-1">
-
                       <p
                         className="
                           text-[var(--accent)]
@@ -391,20 +309,29 @@ function Experience() {
                         {experience.type}
                       </p>
 
+                      {/* Clickable LinkedIn Heading */}
 
-                      <h3
+                      <a
+                        href={linkedInUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${experience.title} - Open LinkedIn profile`}
                         className="
+                          inline-block
                           text-lg
                           sm:text-xl
                           md:text-2xl
                           font-bold
                           text-[var(--text)]
                           mt-1
+                          hover:text-[var(--accent)]
+                          transition-colors
+                          duration-300
+                          cursor-pointer
                         "
                       >
                         {experience.title}
-                      </h3>
-
+                      </a>
 
                       <p
                         className="
@@ -417,15 +344,10 @@ function Experience() {
                       >
                         {experience.company}
                       </p>
-
                     </div>
-
                   </div>
 
-
-                  {/* =================================================
-                      Duration
-                  ================================================= */}
+                  {/* Duration */}
 
                   <div
                     className="
@@ -447,10 +369,7 @@ function Experience() {
                     {experience.duration}
                   </div>
 
-
-                  {/* =================================================
-                      Program
-                  ================================================= */}
+                  {/* Program */}
 
                   <p
                     className="
@@ -464,10 +383,7 @@ function Experience() {
                     {experience.program}
                   </p>
 
-
-                  {/* =================================================
-                      Description
-                  ================================================= */}
+                  {/* Description */}
 
                   <p
                     className="
@@ -481,13 +397,9 @@ function Experience() {
                     {experience.description}
                   </p>
 
-
-                  {/* =================================================
-                      Key Highlights
-                  ================================================= */}
+                  {/* Key Highlights */}
 
                   <div className="mt-6">
-
                     <h4
                       className="
                         text-xs
@@ -502,11 +414,8 @@ function Experience() {
                       Key Highlights
                     </h4>
 
-
                     <ul className="space-y-2.5">
-
                       {experience.points.map((point) => (
-
                         <li
                           key={point}
                           className="
@@ -519,7 +428,6 @@ function Experience() {
                             leading-6
                           "
                         >
-
                           <span
                             className="
                               mt-2
@@ -531,22 +439,13 @@ function Experience() {
                             "
                           />
 
-                          <span>
-                            {point}
-                          </span>
-
+                          <span>{point}</span>
                         </li>
-
                       ))}
-
                     </ul>
-
                   </div>
 
-
-                  {/* =================================================
-                      Skills
-                  ================================================= */}
+                  {/* Skills */}
 
                   <div
                     className="
@@ -556,9 +455,7 @@ function Experience() {
                       gap-2
                     "
                   >
-
                     {experience.skills.map((skill) => (
-
                       <span
                         key={skill}
                         className="
@@ -580,18 +477,12 @@ function Experience() {
                       >
                         {skill}
                       </span>
-
                     ))}
-
                   </div>
 
-
-                  {/* =================================================
-                      IBM SkillsBuild Link
-                  ================================================= */}
+                  {/* IBM SkillsBuild Link */}
 
                   {experience.link && (
-
                     <a
                       href={experience.link}
                       target="_blank"
@@ -609,21 +500,12 @@ function Experience() {
                         duration-300
                       "
                     >
-
                       View IBM SkillsBuild
-
-                      <FaExternalLinkAlt
-                        className="text-xs"
-                      />
-
+                      <FaExternalLinkAlt className="text-xs" />
                     </a>
-
                   )}
 
-
-                  {/* =================================================
-                      Badge
-                  ================================================= */}
+                  {/* Badge */}
 
                   <div
                     className="
@@ -639,32 +521,17 @@ function Experience() {
                       text-[var(--accent)]
                     "
                   >
-
                     <FaAward />
-
                     {experience.badge}
-
                   </div>
-
                 </div>
-
               </motion.div>
-
             ))}
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }
-
-
-// =====================================================
-// Export Component
-// =====================================================
 
 export default Experience;
